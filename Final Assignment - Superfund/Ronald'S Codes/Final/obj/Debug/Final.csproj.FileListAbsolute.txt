@@ -1,0 +1,37 @@
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmClassScheduling.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmLogin.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmMainMenu.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmParentAccount.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmStudentAccount.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmStudentRegistration.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmTeacherAccount.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.Properties.Resources.resources
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.csproj.GenerateResource.Cache
+C:\Users\Kima\Desktop\Final\Final\bin\Debug\Final.exe.config
+C:\Users\Kima\Desktop\Final\Final\bin\Debug\Final.exe
+C:\Users\Kima\Desktop\Final\Final\bin\Debug\Final.pdb
+C:\Users\Kima\Desktop\Final\Final\bin\Debug\EntityFramework.dll
+C:\Users\Kima\Desktop\Final\Final\bin\Debug\EntityFramework.xml
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.exe
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.pdb
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.csprojResolveAssemblyReference.cache
+C:\Users\Kima\Desktop\Final\Final\obj\Debug\Final.frmStudentAssessments.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\bin\Debug\Final.exe.config
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.exe
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.pdb
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.csprojResolveAssemblyReference.cache
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmClassScheduling.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmLogin.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmMainMenu.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmParentAccount.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmStudentAccount.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmStudentAssessments.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmStudentRegistration.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.frmTeacherAccount.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.Properties.Resources.resources
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.csproj.GenerateResource.Cache
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\bin\Debug\Final.exe
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\bin\Debug\Final.pdb
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\bin\Debug\EntityFramework.dll
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\bin\Debug\EntityFramework.xml
+C:\Users\Jesus is Sovereign\Desktop\Today\documents-export-2014-10-27-1\Final Assignment - Superfund\Final\Final\obj\Debug\Final.teachersArea.resources

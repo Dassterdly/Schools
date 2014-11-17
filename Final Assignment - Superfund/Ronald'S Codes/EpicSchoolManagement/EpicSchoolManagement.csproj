@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2ED1088D-BF8C-4374-96AD-2D7790A9EABF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EpicSchoolManagement</RootNamespace>
+    <AssemblyName>EpicSchoolManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ActivityMonitor">
+      <HintPath>..\ActivityMonitor\obj\Debug\ActivityMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="SendMail">
+      <HintPath>..\SendMail\obj\Debug\SendMail.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassSearch.Designer.cs">
+      <DependentUpon>ClassSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNewClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewClass.Designer.cs">
+      <DependentUpon>CreateNewClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\AdministrativeStaff.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Assessment.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Class.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\ClassesSchedule.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Day.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Parent.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Parish.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\School.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\SchoolForm.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Schools.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Schools.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Schools.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Schools.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Schools.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Student.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\StudentClass.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\StudentsParent.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Subject.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Teacher.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Tempuser.cs" />
+    <Compile Include="DataLayer\TempUserStor.cs" />
+    <Compile Include="DataLayer\Tempuser_2.cs" />
+    <Compile Include="DataLayer\Term.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\User.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataLayer\Village.cs">
+      <DependentUpon>Schools.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\forgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\forgetPassword.Designer.cs">
+      <DependentUpon>forgetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MainMenuMDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainMenuMDIParent.Designer.cs">
+      <DependentUpon>MainMenuMDIParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FlowControl\Program.cs" />
+    <Compile Include="GUI\LoginControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\LoginControl.Designer.cs">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GUI\studentArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\studentArea.Designer.cs">
+      <DependentUpon>studentArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reLogin.Designer.cs">
+      <DependentUpon>reLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SchoolsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SchoolsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenSavers\ScreenSaver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenSavers\ScreenSaver.Designer.cs">
+      <DependentUpon>ScreenSaver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeachersArea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeachersArea.Designer.cs">
+      <DependentUpon>TeachersArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeScrGUI\AnalogClock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WelcomeScrGUI\AnalogClock.designer.cs">
+      <DependentUpon>AnalogClock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeScrGUI\WelcomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomeScrGUI\WelcomeScreen.Designer.cs">
+      <DependentUpon>WelcomeScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ClassSearch.resx">
+      <DependentUpon>ClassSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\forgetPassword.resx">
+      <DependentUpon>forgetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainMenuMDIParent.resx">
+      <DependentUpon>MainMenuMDIParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\LoginControl.resx">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="GUI\studentArea.resx">
+      <DependentUpon>studentArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reLogin.resx">
+      <DependentUpon>reLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenSavers\ScreenSaver.resx">
+      <DependentUpon>ScreenSaver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeachersArea.resx">
+      <DependentUpon>TeachersArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeScrGUI\AnalogClock.resx">
+      <DependentUpon>AnalogClock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeScrGUI\WelcomeScreen.resx">
+      <DependentUpon>WelcomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataLayer\Schools.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Schools.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataLayer\Schools.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Schools.edmx</DependentUpon>
+      <LastGenOutput>Schools.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DataLayer\Schools.edmx.diagram">
+      <DependentUpon>Schools.edmx</DependentUpon>
+    </None>
+    <None Include="DataLayer\Schools.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Schools.edmx</DependentUpon>
+      <LastGenOutput>Schools.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SchoolsDataSet.xsc">
+      <DependentUpon>SchoolsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SchoolsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SchoolsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SchoolsDataSet.xss">
+      <DependentUpon>SchoolsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SchoolsDataSet1.xsc">
+      <DependentUpon>SchoolsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SchoolsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SchoolsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SchoolsDataSet1.xss">
+      <DependentUpon>SchoolsDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="frmStudent\" />
+    <Folder Include="ReportGen\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\users.png" />
+    <None Include="Images\calc.png" />
+    <None Include="Images\Notepad1.png" />
+    <None Include="Images\Mail-Serv.gif" />
+    <None Include="Images\Mail.gif" />
+    <None Include="Images\sc_info.png" />
+    <None Include="Images\Stage_BG_btm.png" />
+    <None Include="Images\loader.gif" />
+    <None Include="Images\Stage_BG.png" />
+    <None Include="Images\Stage_BG3.png" />
+    <Content Include="WelcomeScrGUI\AnalogClock.sln" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
