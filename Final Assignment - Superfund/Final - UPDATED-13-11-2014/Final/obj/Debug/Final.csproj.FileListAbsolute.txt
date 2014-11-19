@@ -62,3 +62,49 @@ C:\Users\Kima\Desktop\Final - UPDATED-6-11-2014\Final\obj\Debug\Final.frmStudent
 C:\Users\Kima\Desktop\Final - UPDATED-6-11-2014\Final\obj\Debug\Final.frmTeacherAccount.resources
 C:\Users\Kima\Desktop\Final - UPDATED-6-11-2014\Final\obj\Debug\Final.Properties.Resources.resources
 C:\Users\Kima\Desktop\Final - UPDATED-6-11-2014\Final\obj\Debug\Final.csproj.GenerateResource.Cache
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\bin\Debug\Final.exe.config
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.exe
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.pdb
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\bin\Debug\Final.exe
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\bin\Debug\Final.pdb
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\bin\Debug\EntityFramework.dll
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\bin\Debug\EntityFramework.xml
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.csprojResolveAssemblyReference.cache
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmClassScheduling.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmLogin.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmMainMenu.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewParish.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewSchoolForm.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewSubject.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewTeacher.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewVillage.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmParentAccount.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmStudentAccount.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmStudentAssessments.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmStudentRegistration.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmTeacherAccount.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.Properties.Resources.resources
+C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\bin\Debug\Final.exe.config
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.exe
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.pdb
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\bin\Debug\Final.exe
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\bin\Debug\Final.pdb
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\bin\Debug\EntityFramework.dll
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\bin\Debug\EntityFramework.xml
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmClassScheduling.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmLogin.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmMainMenu.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewParish.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewSchoolForm.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewSubject.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewTeacher.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmNewVillage.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmParentAccount.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmStudentAccount.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmStudentAssessments.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmStudentRegistration.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmTeacherAccount.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.Properties.Resources.resources
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.csproj.GenerateResource.Cache

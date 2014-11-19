@@ -55,6 +55,7 @@
     <Compile Include="AdministrativeStaff.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Alerts.cs" />
     <Compile Include="Assessment.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>

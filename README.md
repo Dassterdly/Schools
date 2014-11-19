@@ -1,4 +1,0 @@
-Schools
-=======
-
-Schools Project 

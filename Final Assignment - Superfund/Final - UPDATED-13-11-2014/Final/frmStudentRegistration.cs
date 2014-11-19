@@ -23,34 +23,38 @@ namespace Final
         string result;
 
         SchoolsEntities db = new SchoolsEntities();
+        Class cl;
+        int Classid;
         int sID, pID, spID, suID, LoginID, Scode, uID;
-        string dftpass ="password";
+        string dftpass = "password";
         string acctyp;
-        
+
+        private static int scID;
+
         public frmStudentRegistration()
         {
             InitializeComponent();
             Loadfrm();
         }
-        
+
         private void frmStudentRegistration_Load(object sender, EventArgs e)
         {
             Loadfrm();
             uID = Convert.ToInt32(this.uIDlbl.Text);
-                  
+
             fillChecklistbox();
             addparentbtn.Visible = false;
-           
+
         }
 
         public void Loadfrm()
         {
-            
+
 
             formCB.DataSource = db.SchoolForms.ToList();
             formCB.DisplayMember = "FormName";
             formCB.ValueMember = "FormID";
-            
+
 
             sID = db.Students.Max(m => m.StudentID) + 1;
             StudentIDTB.ReadOnly = true;
@@ -63,7 +67,7 @@ namespace Final
             relationshipCB.SelectedIndex = -1;
 
             VillageCB.DataSource = null;
-            VillageCB.DataSource = db.Villages.OrderBy(x => x.VillageName).ToList(); 
+            VillageCB.DataSource = db.Villages.OrderBy(x => x.VillageName).ToList();
             VillageCB.DisplayMember = "VillageName";
             VillageCB.ValueMember = "VillageID";
             VillageCB.SelectedIndex = -1;
@@ -77,7 +81,7 @@ namespace Final
             schoolsCB.DisplayMember = "SchoolName";
             schoolsCB.ValueMember = "SchoolCode";
             schoolsCB.SelectedIndex = -1;
-                       
+
             crTermCB.DataSource = db.Terms.ToList();
             crTermCB.DisplayMember = "TermName";
             crTermCB.ValueMember = "TermID";
@@ -88,7 +92,7 @@ namespace Final
             crAcademicPCB.SelectedIndex = -1;
 
             //fillChecklistbox();
-          
+
         }
 
         private void fillChecklistbox()
@@ -99,31 +103,18 @@ namespace Final
             foreach (var s in school)
             {
                 uIDlbl.Text = s.ToString();
-                
+
             }
             Scode = Convert.ToInt32(uIDlbl.Text);
 
-            var Classes = (from c in db.Classes
-                           join cs in db.ClassesSchedules on c.ClassID equals cs.ClassID
-                           where c.SchoolCode == Scode
-                           select new
-                           {
-                               ID = c.ClassID,
-                               Subject = c.Subject,
-                               Form = c.SchoolForm,
-                               Term = c.Term,
-                               Year = c.AcademicYear,
-                               Days = cs.Day
-                           });
-            
-            ClassListGV.DataSource = Classes.ToList();
-            
+            BindGridView();
+
         }
-        
+
 
         private void addparentbtn_Click(object sender, EventArgs e)
         {
-            addparentbtn.Enabled = false; 
+            addparentbtn.Enabled = false;
 
             parentdetailGB.Visible = true;
             pID = db.Parents.Max(m => m.ParentID) + 1;
@@ -183,7 +174,7 @@ namespace Final
         }
 
         private void ParentSaved()
-        {            
+        {
             pidTB.Text = (db.Parents.Max(m => m.ParentID) + 1).ToString();
             pfirstnameTB.Clear();
             plastnameTB.Clear();
@@ -194,7 +185,7 @@ namespace Final
             pworkTB.Clear();
             pcellTB.Clear();
             pemailTB.Clear();
-            
+
             var pquery = from s in db.Students
                          join sp in db.StudentsParents on s.StudentID equals sp.StudentID
                          join p in db.Parents on sp.ParentID equals p.ParentID
@@ -224,7 +215,7 @@ namespace Final
                 };
 
                 db.Parents.Add(newParent);
-                
+
                 StudentsParent sparent = new StudentsParent
                 {
 
@@ -238,7 +229,7 @@ namespace Final
 
                 acctyp = "Parent";
                 generatepLogin(LoginID, pfirstnameTB.Text, plastnameTB.Text, Convert.ToDateTime(pDOBdatepicker.Text), pemailTB.Text, dftpass, acctyp);
-            
+
                 db.SaveChanges();
 
                 MessageBox.Show("Parent Successfully Added");
@@ -254,7 +245,7 @@ namespace Final
 
         private void saveStudent()
         {
-             LoginID = db.Users.Max(m => m.UserID) + 1;
+            LoginID = db.Users.Max(m => m.UserID) + 1;
             try
             {
                 suID = db.Students.Max(m => m.StudentID) + 1;
@@ -286,30 +277,31 @@ namespace Final
 
                 this.db.SaveChanges();
 
-                MessageBox.Show("Student Successfully Registered");                
+                MessageBox.Show("Student Successfully Registered");
                 sSaved();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR - Cannot be Saved:"+"\n\n\n"+ ex);
+                MessageBox.Show("ERROR - Cannot be Saved:" + "\n\n\n" + ex);
             }
-          }
+        }
 
         private void AddStudentBtn_Click(object sender, EventArgs e)
-        {            
-               saveStudent();
-               addparentbtn.Visible = true;}
+        {
+            saveStudent();
+            addparentbtn.Visible = true;
+        }
 
         private void addprecBtn_Click(object sender, EventArgs e)
         {
-            saveParent(); 
+            saveParent();
         }
 
         private void NewVilbtn_Click(object sender, EventArgs e)
         {
             frmNewVillage nVillage = new frmNewVillage();
             nVillage.Show();
-            
+
         }
 
         private void newParishbtn_Click(object sender, EventArgs e)
@@ -337,7 +329,7 @@ namespace Final
 
             return ID;
 
-    
+
         }
 
         public string ValidateName(string input)
@@ -358,12 +350,12 @@ namespace Final
             else
             {
                 ValidData();
-                
+
             }
             return result;
         }
 
-        
+
         public string ValidateEmail(string input)
         {
             if (input != "")
@@ -401,12 +393,12 @@ namespace Final
                 else
                 {
                     ValidData();
-                } 
+                }
             }
             else
             {
-                result = null;   
-                
+                result = null;
+
             }
             return result;
         }
@@ -416,7 +408,89 @@ namespace Final
 
         }
 
-               
-    
+        private void rightBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void BindGridView()
+        {
+            DataTable dt = new DataTable();
+
+            var Classes = (from c in db.Classes
+                           join cs in db.ClassesSchedules on c.ClassID equals cs.ClassID
+                           where c.SchoolCode == Scode
+                           select new
+                           {
+                               ID = c.ClassID,
+                               Subject = c.Subject,
+                               Form = c.SchoolForm,
+                               //Term = c.Term,
+                               Year = c.AcademicYear,
+                               //Days = cs.Day
+                           });
+            var CTime = (from c in db.Classes
+                         join cs in db.ClassesSchedules on c.ClassID equals cs.ClassID
+                         where c.SchoolCode == Scode
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Days = cs.Day,
+                             Start = cs.StartTime,
+                             End = cs.EndTime
+                         });
+
+            ClassListGV.DataSource = Classes.ToList();
+
+            //DataSet ds = new DataSet();
+
+            //DataTable dtClass = new DataTable();
+            //foreach (var v in Classes)
+            //{
+            //    dtClass.Rows.Add(v);
+            //}
+
+            //DataTable dtTime = new DataTable();
+
+            //foreach (var t in CTime)
+            //{
+
+            //    dtTime.Rows.Add(t);
+            //}
+            //ds.Tables.Add(dtClass);
+            //ds.Tables.Add(dtTime);
+
+            //DataRelation dtRel = new DataRelation("Details", dtClass.Columns["ID"], dtTime.Columns["ID"]);
+            //ds.Relations.Add(dtRel);
+
+            dataGrid1.DataSource = Classes.ToList();
+
+
+
+
+
+        }
+
+        private void ClassListGV_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void left1Btn_Click(object sender, EventArgs e)
+        {
+            scID = db.StudentClasses.Max(m => m.StudentClassesID) + 1;
+       
+            
+            registeredClassesGV.DataSource = null;
+            //registeredClassesGV.DataSource = new BindingList<Class>(cl);
+        }
+
+        private void ClassListGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Classid = int.Parse(ClassListGV.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+            cl = db.Classes.Where(c => c.ClassID == Classid).ToList().Single();
+            
+            
+        }
+        
     }
 }

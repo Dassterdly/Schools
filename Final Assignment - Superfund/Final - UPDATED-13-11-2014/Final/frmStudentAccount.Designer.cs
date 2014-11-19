@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
             this.FormTB = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.SchoolTB = new System.Windows.Forms.TextBox();
@@ -65,6 +65,11 @@
             this.resultsGB = new System.Windows.Forms.GroupBox();
             this.studentclassesGV = new System.Windows.Forms.DataGridView();
             this.sortGB = new System.Windows.Forms.GroupBox();
+            this.SortingGB = new System.Windows.Forms.GroupBox();
+            this.TermCB = new System.Windows.Forms.ComboBox();
+            this.Termlbl = new System.Windows.Forms.Label();
+            this.AcademicPCB = new System.Windows.Forms.ComboBox();
+            this.acadperiodlbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.SCFormTB = new System.Windows.Forms.TextBox();
@@ -73,10 +78,6 @@
             this.SCStudentTB = new System.Windows.Forms.TextBox();
             this.RefreshBtn = new System.Windows.Forms.Button();
             this.Searchbtn = new System.Windows.Forms.Button();
-            this.AcademicPCB = new System.Windows.Forms.ComboBox();
-            this.TermCB = new System.Windows.Forms.ComboBox();
-            this.Termlbl = new System.Windows.Forms.Label();
-            this.acadperiodlbl = new System.Windows.Forms.Label();
             this.studentPicture = new System.Windows.Forms.PictureBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -102,7 +103,6 @@
             this.uIDlbl = new System.Windows.Forms.Label();
             this.StudentProfileTab = new System.Windows.Forms.TabPage();
             this.StudentScheduleTab = new System.Windows.Forms.TabControl();
-            this.dataGrid1 = new System.Windows.Forms.DataGrid();
             this.StudentGradeBook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -113,6 +113,7 @@
             this.resultsGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentclassesGV)).BeginInit();
             this.sortGB.SuspendLayout();
+            this.SortingGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -127,7 +128,6 @@
             this.basicdatagroupbox.SuspendLayout();
             this.StudentProfileTab.SuspendLayout();
             this.StudentScheduleTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // FormTB
@@ -296,6 +296,7 @@
             // 
             this.GBGradDateTB.Location = new System.Drawing.Point(340, 80);
             this.GBGradDateTB.Name = "GBGradDateTB";
+            this.GBGradDateTB.ReadOnly = true;
             this.GBGradDateTB.Size = new System.Drawing.Size(172, 20);
             this.GBGradDateTB.TabIndex = 52;
             // 
@@ -303,6 +304,7 @@
             // 
             this.GBAdmDateTB.Location = new System.Drawing.Point(103, 80);
             this.GBAdmDateTB.Name = "GBAdmDateTB";
+            this.GBAdmDateTB.ReadOnly = true;
             this.GBAdmDateTB.Size = new System.Drawing.Size(92, 20);
             this.GBAdmDateTB.TabIndex = 51;
             // 
@@ -346,6 +348,7 @@
             // 
             this.GBFormTB.Location = new System.Drawing.Point(421, 50);
             this.GBFormTB.Name = "GBFormTB";
+            this.GBFormTB.ReadOnly = true;
             this.GBFormTB.Size = new System.Drawing.Size(91, 20);
             this.GBFormTB.TabIndex = 46;
             // 
@@ -353,6 +356,7 @@
             // 
             this.GBSchoolTB.Location = new System.Drawing.Point(103, 50);
             this.GBSchoolTB.Name = "GBSchoolTB";
+            this.GBSchoolTB.ReadOnly = true;
             this.GBSchoolTB.Size = new System.Drawing.Size(275, 20);
             this.GBSchoolTB.TabIndex = 45;
             // 
@@ -369,21 +373,23 @@
             // 
             this.GBStudentNameTB.Location = new System.Drawing.Point(103, 20);
             this.GBStudentNameTB.Name = "GBStudentNameTB";
+            this.GBStudentNameTB.ReadOnly = true;
             this.GBStudentNameTB.Size = new System.Drawing.Size(275, 20);
             this.GBStudentNameTB.TabIndex = 41;
             // 
             // GradebookListView
             // 
-            listViewGroup11.Header = "Academic Year";
-            listViewGroup11.Name = "2013-2014";
-            listViewGroup12.Header = "Academic Year";
-            listViewGroup12.Name = "2014-2015";
+            this.GradebookListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            listViewGroup1.Header = "Academic Year";
+            listViewGroup1.Name = "2013-2014";
+            listViewGroup2.Header = "Academic Year";
+            listViewGroup2.Name = "2014-2015";
             this.GradebookListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup1,
+            listViewGroup2});
             this.GradebookListView.Location = new System.Drawing.Point(0, 0);
             this.GradebookListView.Name = "GradebookListView";
-            this.GradebookListView.Size = new System.Drawing.Size(804, 285);
+            this.GradebookListView.Size = new System.Drawing.Size(859, 285);
             this.GradebookListView.TabIndex = 1;
             this.GradebookListView.UseCompatibleStateImageBehavior = false;
             this.GradebookListView.View = System.Windows.Forms.View.Details;
@@ -436,7 +442,6 @@
             // 
             // resultsGB
             // 
-            this.resultsGB.Controls.Add(this.dataGrid1);
             this.resultsGB.Controls.Add(this.studentclassesGV);
             this.resultsGB.Location = new System.Drawing.Point(8, 122);
             this.resultsGB.Name = "resultsGB";
@@ -450,14 +455,16 @@
             this.studentclassesGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.studentclassesGV.BackgroundColor = System.Drawing.Color.White;
             this.studentclassesGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentclassesGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentclassesGV.Location = new System.Drawing.Point(3, 16);
             this.studentclassesGV.Name = "studentclassesGV";
-            this.studentclassesGV.Size = new System.Drawing.Size(348, 268);
+            this.studentclassesGV.Size = new System.Drawing.Size(827, 268);
             this.studentclassesGV.TabIndex = 1;
             this.studentclassesGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentclassesGV_CellClick);
             // 
             // sortGB
             // 
+            this.sortGB.Controls.Add(this.SortingGB);
             this.sortGB.Controls.Add(this.label18);
             this.sortGB.Controls.Add(this.label19);
             this.sortGB.Controls.Add(this.SCFormTB);
@@ -466,15 +473,58 @@
             this.sortGB.Controls.Add(this.SCStudentTB);
             this.sortGB.Controls.Add(this.RefreshBtn);
             this.sortGB.Controls.Add(this.Searchbtn);
-            this.sortGB.Controls.Add(this.AcademicPCB);
-            this.sortGB.Controls.Add(this.TermCB);
-            this.sortGB.Controls.Add(this.Termlbl);
-            this.sortGB.Controls.Add(this.acadperiodlbl);
             this.sortGB.Location = new System.Drawing.Point(11, 6);
             this.sortGB.Name = "sortGB";
             this.sortGB.Size = new System.Drawing.Size(827, 110);
             this.sortGB.TabIndex = 1;
             this.sortGB.TabStop = false;
+            // 
+            // SortingGB
+            // 
+            this.SortingGB.Controls.Add(this.TermCB);
+            this.SortingGB.Controls.Add(this.Termlbl);
+            this.SortingGB.Controls.Add(this.AcademicPCB);
+            this.SortingGB.Controls.Add(this.acadperiodlbl);
+            this.SortingGB.Location = new System.Drawing.Point(403, 17);
+            this.SortingGB.Name = "SortingGB";
+            this.SortingGB.Size = new System.Drawing.Size(285, 83);
+            this.SortingGB.TabIndex = 49;
+            this.SortingGB.TabStop = false;
+            this.SortingGB.Text = "Sort By";
+            // 
+            // TermCB
+            // 
+            this.TermCB.FormattingEnabled = true;
+            this.TermCB.Location = new System.Drawing.Point(104, 50);
+            this.TermCB.Name = "TermCB";
+            this.TermCB.Size = new System.Drawing.Size(121, 21);
+            this.TermCB.TabIndex = 2;
+            // 
+            // Termlbl
+            // 
+            this.Termlbl.AutoSize = true;
+            this.Termlbl.Location = new System.Drawing.Point(67, 58);
+            this.Termlbl.Name = "Termlbl";
+            this.Termlbl.Size = new System.Drawing.Size(31, 13);
+            this.Termlbl.TabIndex = 1;
+            this.Termlbl.Text = "Term";
+            // 
+            // AcademicPCB
+            // 
+            this.AcademicPCB.FormattingEnabled = true;
+            this.AcademicPCB.Location = new System.Drawing.Point(104, 19);
+            this.AcademicPCB.Name = "AcademicPCB";
+            this.AcademicPCB.Size = new System.Drawing.Size(121, 21);
+            this.AcademicPCB.TabIndex = 3;
+            // 
+            // acadperiodlbl
+            // 
+            this.acadperiodlbl.AutoSize = true;
+            this.acadperiodlbl.Location = new System.Drawing.Point(11, 22);
+            this.acadperiodlbl.Name = "acadperiodlbl";
+            this.acadperiodlbl.Size = new System.Drawing.Size(87, 13);
+            this.acadperiodlbl.TabIndex = 0;
+            this.acadperiodlbl.Text = "Academic Period";
             // 
             // label18
             // 
@@ -498,6 +548,7 @@
             // 
             this.SCFormTB.Location = new System.Drawing.Point(86, 80);
             this.SCFormTB.Name = "SCFormTB";
+            this.SCFormTB.ReadOnly = true;
             this.SCFormTB.Size = new System.Drawing.Size(91, 20);
             this.SCFormTB.TabIndex = 46;
             // 
@@ -505,6 +556,7 @@
             // 
             this.SCsklTB.Location = new System.Drawing.Point(86, 50);
             this.SCsklTB.Name = "SCsklTB";
+            this.SCsklTB.ReadOnly = true;
             this.SCsklTB.Size = new System.Drawing.Size(275, 20);
             this.SCsklTB.TabIndex = 45;
             // 
@@ -521,6 +573,7 @@
             // 
             this.SCStudentTB.Location = new System.Drawing.Point(86, 17);
             this.SCStudentTB.Name = "SCStudentTB";
+            this.SCStudentTB.ReadOnly = true;
             this.SCStudentTB.Size = new System.Drawing.Size(172, 20);
             this.SCStudentTB.TabIndex = 41;
             // 
@@ -544,46 +597,14 @@
             this.Searchbtn.UseVisualStyleBackColor = true;
             this.Searchbtn.Click += new System.EventHandler(this.Searchbtn_Click);
             // 
-            // AcademicPCB
-            // 
-            this.AcademicPCB.FormattingEnabled = true;
-            this.AcademicPCB.Location = new System.Drawing.Point(560, 79);
-            this.AcademicPCB.Name = "AcademicPCB";
-            this.AcademicPCB.Size = new System.Drawing.Size(121, 21);
-            this.AcademicPCB.TabIndex = 3;
-            // 
-            // TermCB
-            // 
-            this.TermCB.FormattingEnabled = true;
-            this.TermCB.Location = new System.Drawing.Point(315, 79);
-            this.TermCB.Name = "TermCB";
-            this.TermCB.Size = new System.Drawing.Size(121, 21);
-            this.TermCB.TabIndex = 2;
-            // 
-            // Termlbl
-            // 
-            this.Termlbl.AutoSize = true;
-            this.Termlbl.Location = new System.Drawing.Point(261, 82);
-            this.Termlbl.Name = "Termlbl";
-            this.Termlbl.Size = new System.Drawing.Size(31, 13);
-            this.Termlbl.TabIndex = 1;
-            this.Termlbl.Text = "Term";
-            // 
-            // acadperiodlbl
-            // 
-            this.acadperiodlbl.AutoSize = true;
-            this.acadperiodlbl.Location = new System.Drawing.Point(467, 82);
-            this.acadperiodlbl.Name = "acadperiodlbl";
-            this.acadperiodlbl.Size = new System.Drawing.Size(87, 13);
-            this.acadperiodlbl.TabIndex = 0;
-            this.acadperiodlbl.Text = "Academic Period";
-            // 
             // studentPicture
             // 
             this.studentPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentPicture.Image = global::Final.Properties.Resources.MySuccess_Icons_02;
             this.studentPicture.Location = new System.Drawing.Point(0, 0);
             this.studentPicture.Name = "studentPicture";
             this.studentPicture.Size = new System.Drawing.Size(226, 245);
+            this.studentPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.studentPicture.TabIndex = 1;
             this.studentPicture.TabStop = false;
             // 
@@ -654,8 +675,12 @@
             // 
             this.studentparentGridView.AllowUserToAddRows = false;
             this.studentparentGridView.AllowUserToDeleteRows = false;
+            this.studentparentGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.studentparentGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.studentparentGridView.BackgroundColor = System.Drawing.Color.White;
             this.studentparentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentparentGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentparentGridView.GridColor = System.Drawing.Color.White;
             this.studentparentGridView.Location = new System.Drawing.Point(3, 16);
             this.studentparentGridView.Name = "studentparentGridView";
             this.studentparentGridView.ReadOnly = true;
@@ -851,15 +876,6 @@
             this.StudentScheduleTab.Size = new System.Drawing.Size(867, 443);
             this.StudentScheduleTab.TabIndex = 1;
             // 
-            // dataGrid1
-            // 
-            this.dataGrid1.DataMember = "";
-            this.dataGrid1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-            this.dataGrid1.Location = new System.Drawing.Point(396, 16);
-            this.dataGrid1.Name = "dataGrid1";
-            this.dataGrid1.Size = new System.Drawing.Size(410, 172);
-            this.dataGrid1.TabIndex = 2;
-            // 
             // frmStudentAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -881,6 +897,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentclassesGV)).EndInit();
             this.sortGB.ResumeLayout(false);
             this.sortGB.PerformLayout();
+            this.SortingGB.ResumeLayout(false);
+            this.SortingGB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentPicture)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -897,7 +915,6 @@
             this.basicdatagroupbox.PerformLayout();
             this.StudentProfileTab.ResumeLayout(false);
             this.StudentScheduleTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -976,6 +993,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox GBStudentNameTB;
         private System.Windows.Forms.DataGridView studentparentGridView;
-        private System.Windows.Forms.DataGrid dataGrid1;
+        private System.Windows.Forms.GroupBox SortingGB;
     }
 }

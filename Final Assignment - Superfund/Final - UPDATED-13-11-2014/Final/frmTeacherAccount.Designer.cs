@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTeacherAccount));
             this.scTermCB = new System.Windows.Forms.ComboBox();
             this.scTermlbl = new System.Windows.Forms.Label();
             this.scAcademicYrCB = new System.Windows.Forms.ComboBox();
@@ -35,28 +36,30 @@
             this.studentclasslistGV = new System.Windows.Forms.DataGridView();
             this.ClassApprovalTab = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.clRefreshBtn = new System.Windows.Forms.Button();
-            this.clGetDataBtn = new System.Windows.Forms.Button();
-            this.clSubjectCB = new System.Windows.Forms.ComboBox();
-            this.clSubjectlbl = new System.Windows.Forms.Label();
-            this.clTermCB = new System.Windows.Forms.ComboBox();
-            this.clTermlbl = new System.Windows.Forms.Label();
-            this.clAcademicYrCB = new System.Windows.Forms.ComboBox();
+            this.clSortingGB = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.clAcademicPeriodlbl = new System.Windows.Forms.Label();
+            this.clRefreshBtn = new System.Windows.Forms.Button();
+            this.clAcademicYrCB = new System.Windows.Forms.ComboBox();
+            this.clGetDataBtn = new System.Windows.Forms.Button();
+            this.clTermlbl = new System.Windows.Forms.Label();
+            this.clSubjectCB = new System.Windows.Forms.ComboBox();
+            this.clTermCB = new System.Windows.Forms.ComboBox();
+            this.clSubjectlbl = new System.Windows.Forms.Label();
             this.clSchoolTB = new System.Windows.Forms.TextBox();
             this.clSchoollbl = new System.Windows.Forms.Label();
             this.clTeacherNameTB = new System.Windows.Forms.TextBox();
             this.clTeacherIDTB = new System.Windows.Forms.TextBox();
             this.clTeacherNamelbl = new System.Windows.Forms.Label();
             this.clTcherIDlbl = new System.Windows.Forms.Label();
-            this.classapprovallistGV = new System.Windows.Forms.DataGridView();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.scAcademichyrlbl = new System.Windows.Forms.Label();
             this.scSchoollbl = new System.Windows.Forms.Label();
             this.TeacherTabs = new System.Windows.Forms.TabControl();
             this.TAccountTab = new System.Windows.Forms.TabPage();
-            this.QualificationGB = new System.Windows.Forms.GroupBox();
-            this.ChildGridView = new System.Windows.Forms.DataGridView();
+            this.MiscGB = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TContactGB = new System.Windows.Forms.GroupBox();
             this.TCellTB = new System.Windows.Forms.MaskedTextBox();
             this.THomeTB = new System.Windows.Forms.MaskedTextBox();
@@ -84,14 +87,17 @@
             this.teacheraidlbl = new System.Windows.Forms.Label();
             this.ClassTaughtTab = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.ctSubjectCB = new System.Windows.Forms.ComboBox();
-            this.ctSubjectlbl = new System.Windows.Forms.Label();
-            this.ctResetbtn = new System.Windows.Forms.Button();
-            this.ctGetDatabtn = new System.Windows.Forms.Button();
-            this.CTTermCB = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CTAcademicperiodCB = new System.Windows.Forms.ComboBox();
+            this.ctSortingGB = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ctSubjectCB = new System.Windows.Forms.ComboBox();
+            this.CTAcademicperiodCB = new System.Windows.Forms.ComboBox();
+            this.ctSubjectlbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ctResetbtn = new System.Windows.Forms.Button();
+            this.CTTermCB = new System.Windows.Forms.ComboBox();
+            this.ctGetDatabtn = new System.Windows.Forms.Button();
             this.ctSchoolTB = new System.Windows.Forms.TextBox();
             this.schoollbl = new System.Windows.Forms.Label();
             this.ctTeacherNameTB = new System.Windows.Forms.TextBox();
@@ -101,6 +107,9 @@
             this.teachercoursesGV = new System.Windows.Forms.DataGridView();
             this.StudentsPerClassTab = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.scSortingGB = new System.Windows.Forms.GroupBox();
+            this.scFormCB = new System.Windows.Forms.ComboBox();
+            this.scFormlbl = new System.Windows.Forms.Label();
             this.scSubjectCB = new System.Windows.Forms.ComboBox();
             this.scSubjectlbl = new System.Windows.Forms.Label();
             this.scResetBtn = new System.Windows.Forms.Button();
@@ -112,6 +121,8 @@
             this.StudentGradesTab = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.SortByGB = new System.Windows.Forms.GroupBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.gRefreshBtn = new System.Windows.Forms.Button();
             this.gGetDataBtn = new System.Windows.Forms.Button();
             this.gSubjectCB = new System.Windows.Forms.ComboBox();
@@ -138,17 +149,34 @@
             this.gScorelbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.AssesDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.classapprovallistGV = new System.Windows.Forms.DataGridView();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.updateGB = new System.Windows.Forms.GroupBox();
+            this.msglbl = new System.Windows.Forms.Label();
+            this.statusCB = new System.Windows.Forms.ComboBox();
+            this.gradetb = new System.Windows.Forms.TextBox();
+            this.firstnameTB = new System.Windows.Forms.TextBox();
+            this.statuslbl = new System.Windows.Forms.Label();
+            this.Gradelbl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TApprovalTB = new System.Windows.Forms.TextBox();
+            this.ApprovedBylbl = new System.Windows.Forms.Label();
+            this.Signofflbl = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.OfficialGB = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentclasslistGV)).BeginInit();
             this.ClassApprovalTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).BeginInit();
+            this.clSortingGB.SuspendLayout();
             this.TeacherTabs.SuspendLayout();
             this.TAccountTab.SuspendLayout();
-            this.QualificationGB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ChildGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TContactGB.SuspendLayout();
             this.TBasicProfileCB.SuspendLayout();
             this.ClassTaughtTab.SuspendLayout();
@@ -156,12 +184,14 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.ctSortingGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachercoursesGV)).BeginInit();
             this.StudentsPerClassTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.scSortingGB.SuspendLayout();
             this.StudentGradesTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
@@ -179,22 +209,32 @@
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gStudentAssGV)).BeginInit();
             this.NewAssessmentGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+            this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
+            this.splitContainer7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
+            this.splitContainer8.Panel1.SuspendLayout();
+            this.splitContainer8.Panel2.SuspendLayout();
+            this.splitContainer8.SuspendLayout();
+            this.updateGB.SuspendLayout();
+            this.OfficialGB.SuspendLayout();
             this.SuspendLayout();
             // 
             // scTermCB
             // 
             this.scTermCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.scTermCB.FormattingEnabled = true;
-            this.scTermCB.Location = new System.Drawing.Point(442, 44);
+            this.scTermCB.Location = new System.Drawing.Point(114, 50);
             this.scTermCB.Name = "scTermCB";
-            this.scTermCB.Size = new System.Drawing.Size(204, 21);
+            this.scTermCB.Size = new System.Drawing.Size(99, 21);
             this.scTermCB.TabIndex = 19;
-            this.scTermCB.SelectedIndexChanged += new System.EventHandler(this.scTermCB_SelectedIndexChanged);
             // 
             // scTermlbl
             // 
             this.scTermlbl.AutoSize = true;
-            this.scTermlbl.Location = new System.Drawing.Point(392, 47);
+            this.scTermlbl.Location = new System.Drawing.Point(64, 53);
             this.scTermlbl.Name = "scTermlbl";
             this.scTermlbl.Size = new System.Drawing.Size(31, 13);
             this.scTermlbl.TabIndex = 18;
@@ -204,11 +244,10 @@
             // 
             this.scAcademicYrCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.scAcademicYrCB.FormattingEnabled = true;
-            this.scAcademicYrCB.Location = new System.Drawing.Point(442, 14);
+            this.scAcademicYrCB.Location = new System.Drawing.Point(114, 20);
             this.scAcademicYrCB.Name = "scAcademicYrCB";
             this.scAcademicYrCB.Size = new System.Drawing.Size(204, 21);
             this.scAcademicYrCB.TabIndex = 17;
-            this.scAcademicYrCB.SelectedIndexChanged += new System.EventHandler(this.scAcademicYrCB_SelectedIndexChanged);
             // 
             // spSchool
             // 
@@ -250,14 +289,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.clRefreshBtn);
-            this.splitContainer3.Panel1.Controls.Add(this.clGetDataBtn);
-            this.splitContainer3.Panel1.Controls.Add(this.clSubjectCB);
-            this.splitContainer3.Panel1.Controls.Add(this.clSubjectlbl);
-            this.splitContainer3.Panel1.Controls.Add(this.clTermCB);
-            this.splitContainer3.Panel1.Controls.Add(this.clTermlbl);
-            this.splitContainer3.Panel1.Controls.Add(this.clAcademicYrCB);
-            this.splitContainer3.Panel1.Controls.Add(this.clAcademicPeriodlbl);
+            this.splitContainer3.Panel1.Controls.Add(this.clSortingGB);
             this.splitContainer3.Panel1.Controls.Add(this.clSchoolTB);
             this.splitContainer3.Panel1.Controls.Add(this.clSchoollbl);
             this.splitContainer3.Panel1.Controls.Add(this.clTeacherNameTB);
@@ -267,86 +299,121 @@
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.classapprovallistGV);
+            this.splitContainer3.Panel2.Controls.Add(this.splitContainer7);
             this.splitContainer3.Size = new System.Drawing.Size(765, 460);
             this.splitContainer3.SplitterDistance = 114;
             this.splitContainer3.TabIndex = 1;
             // 
+            // clSortingGB
+            // 
+            this.clSortingGB.Controls.Add(this.comboBox2);
+            this.clSortingGB.Controls.Add(this.label4);
+            this.clSortingGB.Controls.Add(this.clAcademicPeriodlbl);
+            this.clSortingGB.Controls.Add(this.clRefreshBtn);
+            this.clSortingGB.Controls.Add(this.clAcademicYrCB);
+            this.clSortingGB.Controls.Add(this.clGetDataBtn);
+            this.clSortingGB.Controls.Add(this.clTermlbl);
+            this.clSortingGB.Controls.Add(this.clSubjectCB);
+            this.clSortingGB.Controls.Add(this.clTermCB);
+            this.clSortingGB.Controls.Add(this.clSubjectlbl);
+            this.clSortingGB.Location = new System.Drawing.Point(299, 3);
+            this.clSortingGB.Name = "clSortingGB";
+            this.clSortingGB.Size = new System.Drawing.Size(458, 100);
+            this.clSortingGB.TabIndex = 24;
+            this.clSortingGB.TabStop = false;
+            this.clSortingGB.Text = "Sort By";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(265, 34);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(63, 21);
+            this.comboBox2.TabIndex = 27;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(229, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Form";
+            // 
+            // clAcademicPeriodlbl
+            // 
+            this.clAcademicPeriodlbl.AutoSize = true;
+            this.clAcademicPeriodlbl.Location = new System.Drawing.Point(18, 15);
+            this.clAcademicPeriodlbl.Name = "clAcademicPeriodlbl";
+            this.clAcademicPeriodlbl.Size = new System.Drawing.Size(87, 13);
+            this.clAcademicPeriodlbl.TabIndex = 16;
+            this.clAcademicPeriodlbl.Text = "Academic Period";
+            // 
             // clRefreshBtn
             // 
-            this.clRefreshBtn.Location = new System.Drawing.Point(645, 59);
+            this.clRefreshBtn.Location = new System.Drawing.Point(366, 56);
             this.clRefreshBtn.Name = "clRefreshBtn";
-            this.clRefreshBtn.Size = new System.Drawing.Size(86, 39);
+            this.clRefreshBtn.Size = new System.Drawing.Size(86, 38);
             this.clRefreshBtn.TabIndex = 23;
             this.clRefreshBtn.Text = "&Refresh";
             this.clRefreshBtn.UseVisualStyleBackColor = true;
             this.clRefreshBtn.Click += new System.EventHandler(this.clRefreshBtn_Click);
             // 
+            // clAcademicYrCB
+            // 
+            this.clAcademicYrCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.clAcademicYrCB.FormattingEnabled = true;
+            this.clAcademicYrCB.Location = new System.Drawing.Point(124, 11);
+            this.clAcademicYrCB.Name = "clAcademicYrCB";
+            this.clAcademicYrCB.Size = new System.Drawing.Size(204, 21);
+            this.clAcademicYrCB.TabIndex = 17;
+            // 
             // clGetDataBtn
             // 
-            this.clGetDataBtn.Location = new System.Drawing.Point(645, 8);
+            this.clGetDataBtn.Location = new System.Drawing.Point(366, 8);
             this.clGetDataBtn.Name = "clGetDataBtn";
-            this.clGetDataBtn.Size = new System.Drawing.Size(86, 39);
+            this.clGetDataBtn.Size = new System.Drawing.Size(86, 42);
             this.clGetDataBtn.TabIndex = 22;
             this.clGetDataBtn.Text = "&Get Data";
             this.clGetDataBtn.UseVisualStyleBackColor = true;
             this.clGetDataBtn.Click += new System.EventHandler(this.clGetDataBtn_Click);
             // 
-            // clSubjectCB
-            // 
-            this.clSubjectCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.clSubjectCB.FormattingEnabled = true;
-            this.clSubjectCB.Location = new System.Drawing.Point(401, 61);
-            this.clSubjectCB.Name = "clSubjectCB";
-            this.clSubjectCB.Size = new System.Drawing.Size(204, 21);
-            this.clSubjectCB.TabIndex = 21;
-            // 
-            // clSubjectlbl
-            // 
-            this.clSubjectlbl.AutoSize = true;
-            this.clSubjectlbl.Location = new System.Drawing.Point(339, 65);
-            this.clSubjectlbl.Name = "clSubjectlbl";
-            this.clSubjectlbl.Size = new System.Drawing.Size(43, 13);
-            this.clSubjectlbl.TabIndex = 20;
-            this.clSubjectlbl.Text = "Subject";
-            // 
-            // clTermCB
-            // 
-            this.clTermCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.clTermCB.FormattingEnabled = true;
-            this.clTermCB.Location = new System.Drawing.Point(401, 34);
-            this.clTermCB.Name = "clTermCB";
-            this.clTermCB.Size = new System.Drawing.Size(204, 21);
-            this.clTermCB.TabIndex = 19;
-            this.clTermCB.SelectedIndexChanged += new System.EventHandler(this.clTermCB_SelectedIndexChanged);
-            // 
             // clTermlbl
             // 
             this.clTermlbl.AutoSize = true;
-            this.clTermlbl.Location = new System.Drawing.Point(351, 40);
+            this.clTermlbl.Location = new System.Drawing.Point(74, 41);
             this.clTermlbl.Name = "clTermlbl";
             this.clTermlbl.Size = new System.Drawing.Size(31, 13);
             this.clTermlbl.TabIndex = 18;
             this.clTermlbl.Text = "Term";
             // 
-            // clAcademicYrCB
+            // clSubjectCB
             // 
-            this.clAcademicYrCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.clAcademicYrCB.FormattingEnabled = true;
-            this.clAcademicYrCB.Location = new System.Drawing.Point(401, 10);
-            this.clAcademicYrCB.Name = "clAcademicYrCB";
-            this.clAcademicYrCB.Size = new System.Drawing.Size(204, 21);
-            this.clAcademicYrCB.TabIndex = 17;
-            this.clAcademicYrCB.SelectedIndexChanged += new System.EventHandler(this.clAcademicYrCB_SelectedIndexChanged);
+            this.clSubjectCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.clSubjectCB.FormattingEnabled = true;
+            this.clSubjectCB.Location = new System.Drawing.Point(124, 62);
+            this.clSubjectCB.Name = "clSubjectCB";
+            this.clSubjectCB.Size = new System.Drawing.Size(204, 21);
+            this.clSubjectCB.TabIndex = 21;
             // 
-            // clAcademicPeriodlbl
+            // clTermCB
             // 
-            this.clAcademicPeriodlbl.AutoSize = true;
-            this.clAcademicPeriodlbl.Location = new System.Drawing.Point(295, 14);
-            this.clAcademicPeriodlbl.Name = "clAcademicPeriodlbl";
-            this.clAcademicPeriodlbl.Size = new System.Drawing.Size(87, 13);
-            this.clAcademicPeriodlbl.TabIndex = 16;
-            this.clAcademicPeriodlbl.Text = "Academic Period";
+            this.clTermCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.clTermCB.FormattingEnabled = true;
+            this.clTermCB.Location = new System.Drawing.Point(124, 35);
+            this.clTermCB.Name = "clTermCB";
+            this.clTermCB.Size = new System.Drawing.Size(95, 21);
+            this.clTermCB.TabIndex = 19;
+            // 
+            // clSubjectlbl
+            // 
+            this.clSubjectlbl.AutoSize = true;
+            this.clSubjectlbl.Location = new System.Drawing.Point(62, 66);
+            this.clSubjectlbl.Name = "clSubjectlbl";
+            this.clSubjectlbl.Size = new System.Drawing.Size(43, 13);
+            this.clSubjectlbl.TabIndex = 20;
+            this.clSubjectlbl.Text = "Subject";
             // 
             // clSchoolTB
             // 
@@ -399,18 +466,6 @@
             this.clTcherIDlbl.TabIndex = 10;
             this.clTcherIDlbl.Text = "Teacher ID";
             // 
-            // classapprovallistGV
-            // 
-            this.classapprovallistGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.classapprovallistGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.classapprovallistGV.BackgroundColor = System.Drawing.Color.White;
-            this.classapprovallistGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classapprovallistGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classapprovallistGV.Location = new System.Drawing.Point(0, 0);
-            this.classapprovallistGV.Name = "classapprovallistGV";
-            this.classapprovallistGV.Size = new System.Drawing.Size(765, 342);
-            this.classapprovallistGV.TabIndex = 0;
-            // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
@@ -422,7 +477,7 @@
             // scAcademichyrlbl
             // 
             this.scAcademichyrlbl.AutoSize = true;
-            this.scAcademichyrlbl.Location = new System.Drawing.Point(336, 17);
+            this.scAcademichyrlbl.Location = new System.Drawing.Point(8, 23);
             this.scAcademichyrlbl.Name = "scAcademichyrlbl";
             this.scAcademichyrlbl.Size = new System.Drawing.Size(87, 13);
             this.scAcademichyrlbl.TabIndex = 16;
@@ -453,7 +508,8 @@
             // 
             // TAccountTab
             // 
-            this.TAccountTab.Controls.Add(this.QualificationGB);
+            this.TAccountTab.Controls.Add(this.MiscGB);
+            this.TAccountTab.Controls.Add(this.pictureBox1);
             this.TAccountTab.Controls.Add(this.TContactGB);
             this.TAccountTab.Controls.Add(this.TBasicProfileCB);
             this.TAccountTab.Location = new System.Drawing.Point(4, 22);
@@ -464,24 +520,24 @@
             this.TAccountTab.Text = "Account";
             this.TAccountTab.UseVisualStyleBackColor = true;
             // 
-            // QualificationGB
+            // MiscGB
             // 
-            this.QualificationGB.Controls.Add(this.ChildGridView);
-            this.QualificationGB.Location = new System.Drawing.Point(3, 224);
-            this.QualificationGB.Name = "QualificationGB";
-            this.QualificationGB.Size = new System.Drawing.Size(751, 124);
-            this.QualificationGB.TabIndex = 80;
-            this.QualificationGB.TabStop = false;
-            this.QualificationGB.Text = "Qualifications";
+            this.MiscGB.Location = new System.Drawing.Point(9, 269);
+            this.MiscGB.Name = "MiscGB";
+            this.MiscGB.Size = new System.Drawing.Size(742, 137);
+            this.MiscGB.TabIndex = 80;
+            this.MiscGB.TabStop = false;
+            this.MiscGB.Text = "Other";
             // 
-            // ChildGridView
+            // pictureBox1
             // 
-            this.ChildGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ChildGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChildGridView.Location = new System.Drawing.Point(3, 16);
-            this.ChildGridView.Name = "ChildGridView";
-            this.ChildGridView.Size = new System.Drawing.Size(745, 105);
-            this.ChildGridView.TabIndex = 10;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(8, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(256, 256);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // TContactGB
             // 
@@ -495,9 +551,9 @@
             this.TContactGB.Controls.Add(this.TParishlbl);
             this.TContactGB.Controls.Add(this.TVillagelbl);
             this.TContactGB.Controls.Add(this.TVillageTB);
-            this.TContactGB.Location = new System.Drawing.Point(8, 115);
+            this.TContactGB.Location = new System.Drawing.Point(270, 135);
             this.TContactGB.Name = "TContactGB";
-            this.TContactGB.Size = new System.Drawing.Size(743, 103);
+            this.TContactGB.Size = new System.Drawing.Size(481, 127);
             this.TContactGB.TabIndex = 79;
             this.TContactGB.TabStop = false;
             this.TContactGB.Text = "Contact Information";
@@ -604,9 +660,9 @@
             this.TBasicProfileCB.Controls.Add(this.tlnamelbl);
             this.TBasicProfileCB.Controls.Add(this.tfnamelbl);
             this.TBasicProfileCB.Controls.Add(this.teacheraidlbl);
-            this.TBasicProfileCB.Location = new System.Drawing.Point(8, 6);
+            this.TBasicProfileCB.Location = new System.Drawing.Point(270, 6);
             this.TBasicProfileCB.Name = "TBasicProfileCB";
-            this.TBasicProfileCB.Size = new System.Drawing.Size(743, 103);
+            this.TBasicProfileCB.Size = new System.Drawing.Size(481, 123);
             this.TBasicProfileCB.TabIndex = 78;
             this.TBasicProfileCB.TabStop = false;
             this.TBasicProfileCB.Text = "Basic Information";
@@ -630,7 +686,7 @@
             // 
             // TSchooltb
             // 
-            this.TSchooltb.Location = new System.Drawing.Point(343, 70);
+            this.TSchooltb.Location = new System.Drawing.Point(86, 100);
             this.TSchooltb.Name = "TSchooltb";
             this.TSchooltb.ReadOnly = true;
             this.TSchooltb.Size = new System.Drawing.Size(251, 20);
@@ -639,7 +695,7 @@
             // TSchoollbl
             // 
             this.TSchoollbl.AutoSize = true;
-            this.TSchoollbl.Location = new System.Drawing.Point(297, 73);
+            this.TSchoollbl.Location = new System.Drawing.Point(40, 103);
             this.TSchoollbl.Name = "TSchoollbl";
             this.TSchoollbl.Size = new System.Drawing.Size(40, 13);
             this.TSchoollbl.TabIndex = 79;
@@ -744,14 +800,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.ctSubjectCB);
-            this.splitContainer1.Panel1.Controls.Add(this.ctSubjectlbl);
-            this.splitContainer1.Panel1.Controls.Add(this.ctResetbtn);
-            this.splitContainer1.Panel1.Controls.Add(this.ctGetDatabtn);
-            this.splitContainer1.Panel1.Controls.Add(this.CTTermCB);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.CTAcademicperiodCB);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.ctSortingGB);
             this.splitContainer1.Panel1.Controls.Add(this.ctSchoolTB);
             this.splitContainer1.Panel1.Controls.Add(this.schoollbl);
             this.splitContainer1.Panel1.Controls.Add(this.ctTeacherNameTB);
@@ -763,33 +812,101 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.teachercoursesGV);
             this.splitContainer1.Size = new System.Drawing.Size(762, 454);
-            this.splitContainer1.SplitterDistance = 147;
+            this.splitContainer1.SplitterDistance = 121;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // ctSortingGB
+            // 
+            this.ctSortingGB.Controls.Add(this.comboBox1);
+            this.ctSortingGB.Controls.Add(this.label3);
+            this.ctSortingGB.Controls.Add(this.label1);
+            this.ctSortingGB.Controls.Add(this.ctSubjectCB);
+            this.ctSortingGB.Controls.Add(this.CTAcademicperiodCB);
+            this.ctSortingGB.Controls.Add(this.ctSubjectlbl);
+            this.ctSortingGB.Controls.Add(this.label2);
+            this.ctSortingGB.Controls.Add(this.ctResetbtn);
+            this.ctSortingGB.Controls.Add(this.CTTermCB);
+            this.ctSortingGB.Controls.Add(this.ctGetDatabtn);
+            this.ctSortingGB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctSortingGB.Location = new System.Drawing.Point(321, 3);
+            this.ctSortingGB.Name = "ctSortingGB";
+            this.ctSortingGB.Size = new System.Drawing.Size(436, 110);
+            this.ctSortingGB.TabIndex = 24;
+            this.ctSortingGB.TabStop = false;
+            this.ctSortingGB.Text = "Sort By";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(253, 37);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(63, 21);
+            this.comboBox1.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(217, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Form";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Academic Period";
             // 
             // ctSubjectCB
             // 
             this.ctSubjectCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ctSubjectCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctSubjectCB.FormattingEnabled = true;
-            this.ctSubjectCB.Location = new System.Drawing.Point(444, 65);
+            this.ctSubjectCB.Location = new System.Drawing.Point(112, 64);
             this.ctSubjectCB.Name = "ctSubjectCB";
             this.ctSubjectCB.Size = new System.Drawing.Size(204, 21);
             this.ctSubjectCB.TabIndex = 23;
+            // 
+            // CTAcademicperiodCB
+            // 
+            this.CTAcademicperiodCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CTAcademicperiodCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTAcademicperiodCB.FormattingEnabled = true;
+            this.CTAcademicperiodCB.Location = new System.Drawing.Point(112, 10);
+            this.CTAcademicperiodCB.Name = "CTAcademicperiodCB";
+            this.CTAcademicperiodCB.Size = new System.Drawing.Size(204, 21);
+            this.CTAcademicperiodCB.TabIndex = 7;
             // 
             // ctSubjectlbl
             // 
             this.ctSubjectlbl.AutoSize = true;
             this.ctSubjectlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctSubjectlbl.Location = new System.Drawing.Point(382, 68);
+            this.ctSubjectlbl.Location = new System.Drawing.Point(50, 67);
             this.ctSubjectlbl.Name = "ctSubjectlbl";
             this.ctSubjectlbl.Size = new System.Drawing.Size(43, 13);
             this.ctSubjectlbl.TabIndex = 22;
             this.ctSubjectlbl.Text = "Subject";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(62, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Term";
+            // 
             // ctResetbtn
             // 
             this.ctResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctResetbtn.Location = new System.Drawing.Point(656, 65);
+            this.ctResetbtn.Location = new System.Drawing.Point(324, 64);
             this.ctResetbtn.Name = "ctResetbtn";
             this.ctResetbtn.Size = new System.Drawing.Size(86, 39);
             this.ctResetbtn.TabIndex = 11;
@@ -797,58 +914,26 @@
             this.ctResetbtn.UseVisualStyleBackColor = true;
             this.ctResetbtn.Click += new System.EventHandler(this.ctResetbtn_Click);
             // 
+            // CTTermCB
+            // 
+            this.CTTermCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CTTermCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTTermCB.FormattingEnabled = true;
+            this.CTTermCB.Location = new System.Drawing.Point(112, 35);
+            this.CTTermCB.Name = "CTTermCB";
+            this.CTTermCB.Size = new System.Drawing.Size(106, 21);
+            this.CTTermCB.TabIndex = 9;
+            // 
             // ctGetDatabtn
             // 
             this.ctGetDatabtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctGetDatabtn.Location = new System.Drawing.Point(656, 14);
+            this.ctGetDatabtn.Location = new System.Drawing.Point(324, 13);
             this.ctGetDatabtn.Name = "ctGetDatabtn";
             this.ctGetDatabtn.Size = new System.Drawing.Size(86, 39);
             this.ctGetDatabtn.TabIndex = 10;
             this.ctGetDatabtn.Text = "&Get Data";
             this.ctGetDatabtn.UseVisualStyleBackColor = true;
             this.ctGetDatabtn.Click += new System.EventHandler(this.ctGetDatabtn_Click);
-            // 
-            // CTTermCB
-            // 
-            this.CTTermCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CTTermCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTTermCB.FormattingEnabled = true;
-            this.CTTermCB.Location = new System.Drawing.Point(444, 36);
-            this.CTTermCB.Name = "CTTermCB";
-            this.CTTermCB.Size = new System.Drawing.Size(204, 21);
-            this.CTTermCB.TabIndex = 9;
-            this.CTTermCB.SelectedIndexChanged += new System.EventHandler(this.CTTermCB_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(394, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Term";
-            // 
-            // CTAcademicperiodCB
-            // 
-            this.CTAcademicperiodCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CTAcademicperiodCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTAcademicperiodCB.FormattingEnabled = true;
-            this.CTAcademicperiodCB.Location = new System.Drawing.Point(444, 11);
-            this.CTAcademicperiodCB.Name = "CTAcademicperiodCB";
-            this.CTAcademicperiodCB.Size = new System.Drawing.Size(204, 21);
-            this.CTAcademicperiodCB.TabIndex = 7;
-            this.CTAcademicperiodCB.SelectedIndexChanged += new System.EventHandler(this.CTAcademicperiodCB_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(338, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Academic Period";
             // 
             // ctSchoolTB
             // 
@@ -918,7 +1003,7 @@
             this.teachercoursesGV.Location = new System.Drawing.Point(0, 0);
             this.teachercoursesGV.Name = "teachercoursesGV";
             this.teachercoursesGV.RowTemplate.ReadOnly = true;
-            this.teachercoursesGV.Size = new System.Drawing.Size(762, 303);
+            this.teachercoursesGV.Size = new System.Drawing.Size(762, 329);
             this.teachercoursesGV.TabIndex = 1;
             // 
             // StudentsPerClassTab
@@ -941,14 +1026,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.scSubjectCB);
-            this.splitContainer2.Panel1.Controls.Add(this.scSubjectlbl);
-            this.splitContainer2.Panel1.Controls.Add(this.scResetBtn);
-            this.splitContainer2.Panel1.Controls.Add(this.scGetDataBtn);
-            this.splitContainer2.Panel1.Controls.Add(this.scTermCB);
-            this.splitContainer2.Panel1.Controls.Add(this.scTermlbl);
-            this.splitContainer2.Panel1.Controls.Add(this.scAcademicYrCB);
-            this.splitContainer2.Panel1.Controls.Add(this.scAcademichyrlbl);
+            this.splitContainer2.Panel1.Controls.Add(this.scSortingGB);
             this.splitContainer2.Panel1.Controls.Add(this.spSchool);
             this.splitContainer2.Panel1.Controls.Add(this.scSchoollbl);
             this.splitContainer2.Panel1.Controls.Add(this.spTeacherName);
@@ -963,11 +1041,48 @@
             this.splitContainer2.SplitterDistance = 124;
             this.splitContainer2.TabIndex = 0;
             // 
+            // scSortingGB
+            // 
+            this.scSortingGB.Controls.Add(this.scFormCB);
+            this.scSortingGB.Controls.Add(this.scAcademicYrCB);
+            this.scSortingGB.Controls.Add(this.scFormlbl);
+            this.scSortingGB.Controls.Add(this.scSubjectCB);
+            this.scSortingGB.Controls.Add(this.scAcademichyrlbl);
+            this.scSortingGB.Controls.Add(this.scSubjectlbl);
+            this.scSortingGB.Controls.Add(this.scTermlbl);
+            this.scSortingGB.Controls.Add(this.scResetBtn);
+            this.scSortingGB.Controls.Add(this.scTermCB);
+            this.scSortingGB.Controls.Add(this.scGetDataBtn);
+            this.scSortingGB.Location = new System.Drawing.Point(323, 3);
+            this.scSortingGB.Name = "scSortingGB";
+            this.scSortingGB.Size = new System.Drawing.Size(424, 110);
+            this.scSortingGB.TabIndex = 24;
+            this.scSortingGB.TabStop = false;
+            this.scSortingGB.Text = "Sort By";
+            // 
+            // scFormCB
+            // 
+            this.scFormCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.scFormCB.FormattingEnabled = true;
+            this.scFormCB.Location = new System.Drawing.Point(255, 50);
+            this.scFormCB.Name = "scFormCB";
+            this.scFormCB.Size = new System.Drawing.Size(63, 21);
+            this.scFormCB.TabIndex = 25;
+            // 
+            // scFormlbl
+            // 
+            this.scFormlbl.AutoSize = true;
+            this.scFormlbl.Location = new System.Drawing.Point(219, 53);
+            this.scFormlbl.Name = "scFormlbl";
+            this.scFormlbl.Size = new System.Drawing.Size(30, 13);
+            this.scFormlbl.TabIndex = 24;
+            this.scFormlbl.Text = "Form";
+            // 
             // scSubjectCB
             // 
             this.scSubjectCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.scSubjectCB.FormattingEnabled = true;
-            this.scSubjectCB.Location = new System.Drawing.Point(442, 71);
+            this.scSubjectCB.Location = new System.Drawing.Point(114, 77);
             this.scSubjectCB.Name = "scSubjectCB";
             this.scSubjectCB.Size = new System.Drawing.Size(204, 21);
             this.scSubjectCB.TabIndex = 23;
@@ -975,7 +1090,7 @@
             // scSubjectlbl
             // 
             this.scSubjectlbl.AutoSize = true;
-            this.scSubjectlbl.Location = new System.Drawing.Point(380, 75);
+            this.scSubjectlbl.Location = new System.Drawing.Point(52, 81);
             this.scSubjectlbl.Name = "scSubjectlbl";
             this.scSubjectlbl.Size = new System.Drawing.Size(43, 13);
             this.scSubjectlbl.TabIndex = 22;
@@ -983,7 +1098,7 @@
             // 
             // scResetBtn
             // 
-            this.scResetBtn.Location = new System.Drawing.Point(662, 56);
+            this.scResetBtn.Location = new System.Drawing.Point(332, 62);
             this.scResetBtn.Name = "scResetBtn";
             this.scResetBtn.Size = new System.Drawing.Size(86, 39);
             this.scResetBtn.TabIndex = 21;
@@ -993,7 +1108,7 @@
             // 
             // scGetDataBtn
             // 
-            this.scGetDataBtn.Location = new System.Drawing.Point(662, 5);
+            this.scGetDataBtn.Location = new System.Drawing.Point(332, 11);
             this.scGetDataBtn.Name = "scGetDataBtn";
             this.scGetDataBtn.Size = new System.Drawing.Size(86, 39);
             this.scGetDataBtn.TabIndex = 20;
@@ -1072,6 +1187,8 @@
             // 
             // SortByGB
             // 
+            this.SortByGB.Controls.Add(this.comboBox3);
+            this.SortByGB.Controls.Add(this.label5);
             this.SortByGB.Controls.Add(this.gRefreshBtn);
             this.SortByGB.Controls.Add(this.gGetDataBtn);
             this.SortByGB.Controls.Add(this.gSubjectCB);
@@ -1086,6 +1203,24 @@
             this.SortByGB.TabIndex = 16;
             this.SortByGB.TabStop = false;
             this.SortByGB.Text = "SortBy";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(258, 43);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(63, 21);
+            this.comboBox3.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(222, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Form";
             // 
             // gRefreshBtn
             // 
@@ -1130,9 +1265,8 @@
             this.gTermCB.FormattingEnabled = true;
             this.gTermCB.Location = new System.Drawing.Point(117, 43);
             this.gTermCB.Name = "gTermCB";
-            this.gTermCB.Size = new System.Drawing.Size(204, 21);
+            this.gTermCB.Size = new System.Drawing.Size(93, 21);
             this.gTermCB.TabIndex = 27;
-            this.gTermCB.SelectedIndexChanged += new System.EventHandler(this.gTermCB_SelectedIndexChanged);
             // 
             // gTermlbl
             // 
@@ -1151,7 +1285,6 @@
             this.gAcademicYrCB.Name = "gAcademicYrCB";
             this.gAcademicYrCB.Size = new System.Drawing.Size(204, 21);
             this.gAcademicYrCB.TabIndex = 25;
-            this.gAcademicYrCB.SelectedIndexChanged += new System.EventHandler(this.gAcademicYrCB_SelectedIndexChanged);
             // 
             // gAcadYrlbl
             // 
@@ -1253,11 +1386,11 @@
             // 
             // splitContainer6.Panel1
             // 
-            this.splitContainer6.Panel1.Controls.Add(this.AddBtn);
             this.splitContainer6.Panel1.Controls.Add(this.gStudentAssGV);
             // 
             // splitContainer6.Panel2
             // 
+            this.splitContainer6.Panel2.Controls.Add(this.AddBtn);
             this.splitContainer6.Panel2.Controls.Add(this.NewAssessmentGB);
             this.splitContainer6.Size = new System.Drawing.Size(286, 342);
             this.splitContainer6.SplitterDistance = 142;
@@ -1265,7 +1398,7 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(230, 102);
+            this.AddBtn.Location = new System.Drawing.Point(3, 3);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(39, 26);
             this.AddBtn.TabIndex = 4;
@@ -1294,10 +1427,10 @@
             this.NewAssessmentGB.Controls.Add(this.gScorelbl);
             this.NewAssessmentGB.Controls.Add(this.label10);
             this.NewAssessmentGB.Controls.Add(this.AssesDatePicker);
-            this.NewAssessmentGB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NewAssessmentGB.Location = new System.Drawing.Point(0, 0);
+            this.NewAssessmentGB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.NewAssessmentGB.Location = new System.Drawing.Point(0, 32);
             this.NewAssessmentGB.Name = "NewAssessmentGB";
-            this.NewAssessmentGB.Size = new System.Drawing.Size(286, 196);
+            this.NewAssessmentGB.Size = new System.Drawing.Size(286, 164);
             this.NewAssessmentGB.TabIndex = 5;
             this.NewAssessmentGB.TabStop = false;
             this.NewAssessmentGB.Text = "New Assessment";
@@ -1316,7 +1449,7 @@
             // SaveABtn
             // 
             this.SaveABtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveABtn.Location = new System.Drawing.Point(179, 93);
+            this.SaveABtn.Location = new System.Drawing.Point(178, 25);
             this.SaveABtn.Name = "SaveABtn";
             this.SaveABtn.Size = new System.Drawing.Size(102, 29);
             this.SaveABtn.TabIndex = 40;
@@ -1358,6 +1491,200 @@
             this.AssesDatePicker.Size = new System.Drawing.Size(92, 20);
             this.AssesDatePicker.TabIndex = 36;
             // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer7.Name = "splitContainer7";
+            this.splitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.classapprovallistGV);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.splitContainer8);
+            this.splitContainer7.Size = new System.Drawing.Size(765, 342);
+            this.splitContainer7.SplitterDistance = 198;
+            this.splitContainer7.TabIndex = 0;
+            // 
+            // classapprovallistGV
+            // 
+            this.classapprovallistGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.classapprovallistGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.classapprovallistGV.BackgroundColor = System.Drawing.Color.White;
+            this.classapprovallistGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classapprovallistGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classapprovallistGV.Location = new System.Drawing.Point(0, 0);
+            this.classapprovallistGV.Name = "classapprovallistGV";
+            this.classapprovallistGV.Size = new System.Drawing.Size(765, 198);
+            this.classapprovallistGV.TabIndex = 1;
+            // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer8.Name = "splitContainer8";
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.updateGB);
+            // 
+            // splitContainer8.Panel2
+            // 
+            this.splitContainer8.Panel2.Controls.Add(this.UpdateBtn);
+            this.splitContainer8.Panel2.Controls.Add(this.SaveBtn);
+            this.splitContainer8.Size = new System.Drawing.Size(765, 140);
+            this.splitContainer8.SplitterDistance = 587;
+            this.splitContainer8.TabIndex = 1;
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Location = new System.Drawing.Point(61, 12);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(75, 38);
+            this.UpdateBtn.TabIndex = 2;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Location = new System.Drawing.Point(61, 56);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(75, 41);
+            this.SaveBtn.TabIndex = 4;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            // 
+            // updateGB
+            // 
+            this.updateGB.Controls.Add(this.OfficialGB);
+            this.updateGB.Controls.Add(this.msglbl);
+            this.updateGB.Controls.Add(this.statusCB);
+            this.updateGB.Controls.Add(this.gradetb);
+            this.updateGB.Controls.Add(this.firstnameTB);
+            this.updateGB.Controls.Add(this.statuslbl);
+            this.updateGB.Controls.Add(this.Gradelbl);
+            this.updateGB.Controls.Add(this.label7);
+            this.updateGB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.updateGB.Location = new System.Drawing.Point(0, 0);
+            this.updateGB.Name = "updateGB";
+            this.updateGB.Size = new System.Drawing.Size(587, 140);
+            this.updateGB.TabIndex = 0;
+            this.updateGB.TabStop = false;
+            this.updateGB.Text = "Student Class Approval";
+            // 
+            // msglbl
+            // 
+            this.msglbl.AutoSize = true;
+            this.msglbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msglbl.Location = new System.Drawing.Point(226, 64);
+            this.msglbl.Name = "msglbl";
+            this.msglbl.Size = new System.Drawing.Size(101, 13);
+            this.msglbl.TabIndex = 15;
+            this.msglbl.Text = "( Percentage % )";
+            // 
+            // statusCB
+            // 
+            this.statusCB.FormattingEnabled = true;
+            this.statusCB.Items.AddRange(new object[] {
+            "Approved",
+            "Deferred"});
+            this.statusCB.Location = new System.Drawing.Point(89, 92);
+            this.statusCB.Name = "statusCB";
+            this.statusCB.Size = new System.Drawing.Size(131, 21);
+            this.statusCB.TabIndex = 14;
+            // 
+            // gradetb
+            // 
+            this.gradetb.Location = new System.Drawing.Point(89, 61);
+            this.gradetb.Name = "gradetb";
+            this.gradetb.Size = new System.Drawing.Size(131, 20);
+            this.gradetb.TabIndex = 13;
+            // 
+            // firstnameTB
+            // 
+            this.firstnameTB.Location = new System.Drawing.Point(89, 34);
+            this.firstnameTB.Name = "firstnameTB";
+            this.firstnameTB.ReadOnly = true;
+            this.firstnameTB.Size = new System.Drawing.Size(231, 20);
+            this.firstnameTB.TabIndex = 12;
+            // 
+            // statuslbl
+            // 
+            this.statuslbl.AutoSize = true;
+            this.statuslbl.Location = new System.Drawing.Point(46, 99);
+            this.statuslbl.Name = "statuslbl";
+            this.statuslbl.Size = new System.Drawing.Size(37, 13);
+            this.statuslbl.TabIndex = 11;
+            this.statuslbl.Text = "Status";
+            // 
+            // Gradelbl
+            // 
+            this.Gradelbl.AutoSize = true;
+            this.Gradelbl.Location = new System.Drawing.Point(47, 68);
+            this.Gradelbl.Name = "Gradelbl";
+            this.Gradelbl.Size = new System.Drawing.Size(36, 13);
+            this.Gradelbl.TabIndex = 10;
+            this.Gradelbl.Text = "Grade";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Student Name";
+            // 
+            // TApprovalTB
+            // 
+            this.TApprovalTB.Location = new System.Drawing.Point(107, 19);
+            this.TApprovalTB.Name = "TApprovalTB";
+            this.TApprovalTB.ReadOnly = true;
+            this.TApprovalTB.Size = new System.Drawing.Size(121, 20);
+            this.TApprovalTB.TabIndex = 17;
+            // 
+            // ApprovedBylbl
+            // 
+            this.ApprovedBylbl.AutoSize = true;
+            this.ApprovedBylbl.Location = new System.Drawing.Point(9, 22);
+            this.ApprovedBylbl.Name = "ApprovedBylbl";
+            this.ApprovedBylbl.Size = new System.Drawing.Size(92, 13);
+            this.ApprovedBylbl.TabIndex = 16;
+            this.ApprovedBylbl.Text = "Teacher Approval";
+            // 
+            // Signofflbl
+            // 
+            this.Signofflbl.AutoSize = true;
+            this.Signofflbl.Location = new System.Drawing.Point(41, 49);
+            this.Signofflbl.Name = "Signofflbl";
+            this.Signofflbl.Size = new System.Drawing.Size(60, 13);
+            this.Signofflbl.TabIndex = 18;
+            this.Signofflbl.Text = "Sign Off By";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(107, 48);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 19;
+            // 
+            // OfficialGB
+            // 
+            this.OfficialGB.Controls.Add(this.TApprovalTB);
+            this.OfficialGB.Controls.Add(this.ApprovedBylbl);
+            this.OfficialGB.Controls.Add(this.textBox2);
+            this.OfficialGB.Controls.Add(this.Signofflbl);
+            this.OfficialGB.Location = new System.Drawing.Point(333, 24);
+            this.OfficialGB.Name = "OfficialGB";
+            this.OfficialGB.Size = new System.Drawing.Size(235, 100);
+            this.OfficialGB.TabIndex = 20;
+            this.OfficialGB.TabStop = false;
+            this.OfficialGB.Text = "Official Approval";
+            // 
             // frmTeacherAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1374,11 +1701,11 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).EndInit();
+            this.clSortingGB.ResumeLayout(false);
+            this.clSortingGB.PerformLayout();
             this.TeacherTabs.ResumeLayout(false);
             this.TAccountTab.ResumeLayout(false);
-            this.QualificationGB.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ChildGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TContactGB.ResumeLayout(false);
             this.TContactGB.PerformLayout();
             this.TBasicProfileCB.ResumeLayout(false);
@@ -1389,6 +1716,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.ctSortingGB.ResumeLayout(false);
+            this.ctSortingGB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teachercoursesGV)).EndInit();
             this.StudentsPerClassTab.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -1396,6 +1725,8 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.scSortingGB.ResumeLayout(false);
+            this.scSortingGB.PerformLayout();
             this.StudentGradesTab.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel1.PerformLayout();
@@ -1416,6 +1747,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.gStudentAssGV)).EndInit();
             this.NewAssessmentGB.ResumeLayout(false);
             this.NewAssessmentGB.PerformLayout();
+            this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+            this.splitContainer7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).EndInit();
+            this.splitContainer8.Panel1.ResumeLayout(false);
+            this.splitContainer8.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
+            this.splitContainer8.ResumeLayout(false);
+            this.updateGB.ResumeLayout(false);
+            this.updateGB.PerformLayout();
+            this.OfficialGB.ResumeLayout(false);
+            this.OfficialGB.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1441,7 +1785,6 @@
         private System.Windows.Forms.TextBox clTeacherIDTB;
         private System.Windows.Forms.Label clTeacherNamelbl;
         private System.Windows.Forms.Label clTcherIDlbl;
-        private System.Windows.Forms.DataGridView classapprovallistGV;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label scAcademichyrlbl;
         private System.Windows.Forms.Label scSchoollbl;
@@ -1465,8 +1808,6 @@
         private System.Windows.Forms.Label scTeacherNamelbl;
         private System.Windows.Forms.Label scTeacherIDlbl;
         private System.Windows.Forms.TabPage TAccountTab;
-        private System.Windows.Forms.GroupBox QualificationGB;
-        private System.Windows.Forms.DataGridView ChildGridView;
         private System.Windows.Forms.GroupBox TContactGB;
         private System.Windows.Forms.MaskedTextBox TCellTB;
         private System.Windows.Forms.MaskedTextBox THomeTB;
@@ -1532,5 +1873,36 @@
         private System.Windows.Forms.Label gTermlbl;
         private System.Windows.Forms.ComboBox gAcademicYrCB;
         private System.Windows.Forms.Label gAcadYrlbl;
+        private System.Windows.Forms.GroupBox clSortingGB;
+        private System.Windows.Forms.GroupBox scSortingGB;
+        private System.Windows.Forms.GroupBox ctSortingGB;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox MiscGB;
+        private System.Windows.Forms.ComboBox scFormCB;
+        private System.Windows.Forms.Label scFormlbl;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.SplitContainer splitContainer7;
+        private System.Windows.Forms.DataGridView classapprovallistGV;
+        private System.Windows.Forms.SplitContainer splitContainer8;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.Button UpdateBtn;
+        private System.Windows.Forms.GroupBox updateGB;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label Signofflbl;
+        private System.Windows.Forms.TextBox TApprovalTB;
+        private System.Windows.Forms.Label ApprovedBylbl;
+        private System.Windows.Forms.Label msglbl;
+        private System.Windows.Forms.ComboBox statusCB;
+        private System.Windows.Forms.TextBox gradetb;
+        private System.Windows.Forms.TextBox firstnameTB;
+        private System.Windows.Forms.Label statuslbl;
+        private System.Windows.Forms.Label Gradelbl;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox OfficialGB;
     }
 }

@@ -19,7 +19,7 @@ namespace Final
         
         SchoolsEntities db = new SchoolsEntities();
         int uID, sID, studID, subcode, mth;
-        string cTerm, yr, Term;
+        string result, yr, Term;
         
 
         public frmStudentAccount()
@@ -29,7 +29,7 @@ namespace Final
 
         private void frmStudentAccount_Load(object sender, EventArgs e)
         {
-            //Term = findCurrentTerm();
+           Term =  findCurrentTerm(DateTime.Now);
             LoadStudentProfile();
             LoadStudentParents();
             fillcombobox();
@@ -110,57 +110,40 @@ namespace Final
             {
                 var classquery = from s in db.Students
                                  join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                                 join c in db.Classes on sc.ClassID equals c.ClassID
-                                 join t in db.Teachers on c.TeacherID equals t.TeacherID
-                                 join f in db.SchoolForms on c.FormID equals f.FormID
                                  where s.UserID == uID 
-
                                  select new
                                  {
                                      ID = s.StudentID,
-                                     ClassID = c.ClassID,
-                                     Subject = c.Subject,
-                                     SubjectCode = c.SubjectCode,
-                                     Lecturer = t.FirstName + " " + t.LastName,
-                                     Form = f.FormName,
-                                     AcademicTerm = c.Term,
-                                     AcademicYear = c.AcademicYear
+                                     Subject = sc.Class.Subject,
+                                     SubjectCode = sc.Class.SubjectCode,
+                                     Lecturer = sc.Class.Teacher.FirstName + " " + sc.Class.Teacher.LastName,
+                                     Form = sc.Class.SchoolForm,
+                                     AcademicTerm = sc.Class.Term,
+                                     AcademicYear = sc.Class.AcademicYear
                                  };
 
-                //DataTable studentclass = new DataTable();
-                //DataTable cassessment = new DataTable();
-                //foreach (var c in classquery)
-                //{
-                //    studentclass.Rows.Add(c);
-                //}
-
-                //DataSet ds = new DataSet();
-                //ds.Tables.Add(studentclass);
+                
                 studentclassesGV.DataSource = classquery.OrderByDescending(x => x.AcademicYear).ToList();
-                //dataGrid1.DataSource = ds.Tables[0];
+                
             }
 
             if (TermCB.SelectedIndex != -1 && AcademicPCB.SelectedIndex == -1)
             {
                 var classquery = from s in db.Students
-                             join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                             join c in db.Classes on sc.ClassID equals c.ClassID
-                             join t in db.Teachers on c.TeacherID equals t.TeacherID
-                             join f in db.SchoolForms on c.FormID equals f.FormID
-                             where (s.UserID == uID && c.TermID == term && c.AcademicYear == year) ||
-                             (s.UserID == uID && c.TermID == term || c.AcademicYear == year)
+                                 join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                                 where (s.UserID == uID && sc.Class.TermID == term && sc.Class.AcademicYear == year) ||
+                             (s.UserID == uID && sc.Class.TermID == term || sc.Class.AcademicYear == year)
                              
 
                              select new
                              {
                                  ID = s.StudentID,
-                                 ClassID = c.ClassID,
-                                 Subject = c.Subject,
-                                 SubjectCode = c.SubjectCode,
-                                 Lecturer = t.FirstName + " " + t.LastName,
-                                 Form = f.FormName,
-                                 AcademicTerm = c.Term,
-                                 AcademicYear = c.AcademicYear
+                                 Subject = sc.Class.Subject,
+                                 SubjectCode = sc.Class.SubjectCode,
+                                 Lecturer = sc.Class.Teacher.FirstName + " " + sc.Class.Teacher.LastName,
+                                 Form = sc.Class.SchoolForm,
+                                 AcademicTerm = sc.Class.Term,
+                                 AcademicYear = sc.Class.AcademicYear
                              };
 
             studentclassesGV.DataSource = classquery.OrderByDescending(x=> x.AcademicYear).ToList();
@@ -170,23 +153,19 @@ namespace Final
             {
                 var classquery = from s in db.Students
                                  join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                                 join c in db.Classes on sc.ClassID equals c.ClassID
-                                 join t in db.Teachers on c.TeacherID equals t.TeacherID
-                                 join f in db.SchoolForms on c.FormID equals f.FormID
-                                 where (s.UserID == uID && c.TermID == term && c.AcademicYear == year) ||
-                                 (s.UserID == uID && c.AcademicYear == year || c.TermID == term)
+                                 where (s.UserID == uID && sc.Class.TermID == term && sc.Class.AcademicYear == year) ||
+                                 (s.UserID == uID && sc.Class.AcademicYear == year || sc.Class.TermID == term)
 
 
                                  select new
                                  {
                                      ID = s.StudentID,
-                                     ClassID = c.ClassID,
-                                     Subject = c.Subject,
-                                     SubjectCode = c.SubjectCode,
-                                     Lecturer = t.FirstName + " " + t.LastName,
-                                     Form = f.FormName,
-                                     AcademicTerm = c.Term,
-                                     AcademicYear = c.AcademicYear
+                                     Subject = sc.Class.Subject,
+                                     SubjectCode = sc.Class.SubjectCode,
+                                     Lecturer = sc.Class.Teacher.FirstName + " " + sc.Class.Teacher.LastName,
+                                     Form = sc.Class.SchoolForm,
+                                     AcademicTerm = sc.Class.Term,
+                                     AcademicYear = sc.Class.AcademicYear
                                  };
 
                 studentclassesGV.DataSource = classquery.OrderByDescending(x => x.AcademicYear).ToList();
@@ -196,22 +175,17 @@ namespace Final
             {
                 var classquery = from s in db.Students
                                  join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                                 join c in db.Classes on sc.ClassID equals c.ClassID
-                                 join t in db.Teachers on c.TeacherID equals t.TeacherID
-                                 join f in db.SchoolForms on c.FormID equals f.FormID
-                                 where (s.UserID == uID && c.TermID == term && c.AcademicYear == year)
-
-
+                                 where (s.UserID == uID && sc.Class.TermID == term && sc.Class.AcademicYear == year)
                                  select new
                                  {
-                                     ID = s.StudentID,
-                                     ClassID = c.ClassID,
-                                     Subject = c.Subject,
-                                     SubjectCode = c.SubjectCode,
-                                     Lecturer = t.FirstName + " " + t.LastName,
-                                     Form = f.FormName,
-                                     AcademicTerm = c.Term,
-                                     AcademicYear = c.AcademicYear
+
+                                 ID = s.StudentID,
+                                 Subject = sc.Class.Subject,
+                                 SubjectCode = sc.Class.SubjectCode,
+                                 Lecturer = sc.Class.Teacher.FirstName + " " + sc.Class.Teacher.LastName,
+                                 Form = sc.Class.SchoolForm,
+                                 AcademicTerm = sc.Class.Term,
+                                 AcademicYear = sc.Class.AcademicYear
                                  };
 
                 studentclassesGV.DataSource = classquery.OrderByDescending(x => x.AcademicYear).ToList();
@@ -253,32 +227,21 @@ namespace Final
 
             var classquery = from s in db.Students
                              join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                             join c in db.Classes on sc.ClassID equals c.ClassID
                              where s.UserID == uID
-
                              select new
                              {
                                  ID = s.StudentID,
-                                 ClassID = c.ClassID,
-                                 Subject = c.Subject,
-                                 SubjectCode = c.SubjectCode,
-                                 Lecturer = c.Teacher.FirstName + " " + c.Teacher.LastName,
-                                 Form = c.SchoolForm.FormName,
-                                 AcademicTerm = c.Term,
-                                 AcademicYear = c.AcademicYear
+                                 Subject = sc.Class.Subject,
+                                 SubjectCode = sc.Class.SubjectCode,
+                                 Lecturer = sc.Class.Teacher.FirstName + " " + sc.Class.Teacher.LastName,
+                                 Form = sc.Class.SchoolForm,
+                                 AcademicTerm = sc.Class.Term,
+                                 AcademicYear = sc.Class.AcademicYear
                              };
 
-            DataTable studentclass = new DataTable();
-            DataTable cassessment = new DataTable();
-            foreach (var c in classquery)
-            {
-                studentclass.Rows.Add(c);
-            }
 
-            DataSet ds = new DataSet();
-            ds.Tables.Add(studentclass);
-            this.studentclassesGV.DataSource = classquery.OrderByDescending(x => x.AcademicYear).ToList();
-            this.dataGrid1.DataSource = ds.Tables[0];
+            studentclassesGV.DataSource = classquery.OrderByDescending(x => x.AcademicYear).ToList();
+                    
             
         }
 
@@ -312,7 +275,8 @@ namespace Final
                     lv.SubItems.Add(string.Format("{0} {1}", sc.Class.Teacher.FirstName, sc.Class.Teacher.LastName));
                     lv.SubItems.Add(sc.Class.FormID.ToString());
                     lv.SubItems.Add(sc.Class.Term.TermName);
-                    lv.SubItems.Add("Pending");
+                    lv.SubItems.Add("Pending...");
+                    //lv.SubItems.Add(sc.Grade !=null ? sc.Grade : "Pending");
                     lv.Group = GradebookListView.Groups[group];
                 });
             });
@@ -350,36 +314,38 @@ namespace Final
 
         }
 
-        private string findCurrentTerm()
+        private string findCurrentTerm(DateTime now)
         {
-            DateTime now  = DateTime.Now;
+            
+            now  = DateTime.Now;
 
             yr = now.Year.ToString();
             mth = now.Month; 
+            string filter;
             
-
-            if (mth < 8)
+            if (mth > 8)
             {
-                cTerm = (from c in db.Classes
-                        where c.AcademicYear.Contains(yr+"-")
-                        select c.AcademicYear).ToString();
+               filter = yr+'-';
+               result = db.Classes.Where(x=> x.AcademicYear.Contains(filter)).ToString();
+                    
+                    //from c in db.Classes
+                    //    where c.AcademicYear.Contains(yr+"-")
+                    //    select c.AcademicYear;
 
             }
             else
             {
-                cTerm = (from c in db.Classes
-                         where c.AcademicYear.Contains("-"+yr)
+                filter = '-' + yr;
+               result = (from c in db.Classes
+                         where c.AcademicYear.Contains(filter)
                          select c.AcademicYear).ToString();
             }
 
             
-            return cTerm;
+            return result;
         }
 
-        private void studentclassesGV_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+       
 
         private void sendEmail()
         {

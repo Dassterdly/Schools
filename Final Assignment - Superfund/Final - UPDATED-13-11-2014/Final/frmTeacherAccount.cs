@@ -60,6 +60,10 @@ namespace Final
             ctSubjectCB.ValueMember = "SubjectCode";
             ctSubjectCB.SelectedIndex = -1;
 
+            scFormCB.DataSource = db.SchoolForms.Distinct().ToList();
+            scFormCB.DisplayMember = "FormName";
+            scFormCB.ValueMember = "FormID";
+            scFormCB.SelectedIndex = -1;
 
             scAcademicYrCB.DataSource = year.ToList();
             scAcademicYrCB.DisplayMember = "AcademicYear";
@@ -160,50 +164,31 @@ namespace Final
 
         }
 
-        
-        private void CTAcademicperiodCB_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void results(string yr, int trm, int sub, int form)
         {
-            var Term = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == CTAcademicperiodCB.Text
-                           select trm).Distinct();
 
-            var subject = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == CTAcademicperiodCB.Text && trm.TermName == CTTermCB.Text
-                           select sub).Distinct();
-            
-            CTTermCB.DataSource = Term.ToList();
-            CTTermCB.DisplayMember = "TermName";
-            CTTermCB.ValueMember = "TermID";
-            CTTermCB.SelectedIndex = -1;
 
-            ctSubjectCB.DataSource = subject.ToList();
-            ctSubjectCB.DisplayMember = "SubjectName";
-            ctSubjectCB.ValueMember = "SubjectCode";
-            ctSubjectCB.SelectedIndex = -1;
+
         }
 
+        private void Empty ()
+        {
+
+        MessageBox.Show("No Records Found");
+
+        }
         private void results(string yr, int trm, int sub)
         {
             var cbyID = from t in db.Teachers
-                                  join c in db.Classes on t.TeacherID equals c.TeacherID
-                                  join f in db.SchoolForms on c.FormID equals f.FormID
-                                  join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                                  join tm in db.Terms on c.TermID equals tm.TermID
-                                  where t.UserID == uID
+                        join c in db.Classes on t.TeacherID equals c.TeacherID
+                        where t.UserID == uID
                                   orderby c.AcademicYear descending, c.FormID descending
                                   select new
                                   {
                                       ID = c.ClassID,
                                       Subject = c.Subject,
-                                      Form = f.FormName,
+                                      Form = c.SchoolForm,
                                       AcademicTerm = c.Term,
                                       AcademicYear = c.AcademicYear
                                   };
@@ -219,10 +204,26 @@ namespace Final
                                   {
                                       ID = c.ClassID,
                                       Subject = c.Subject,
-                                      Form = f.FormName,
+                                      Form = c.SchoolForm,
                                       AcademicTerm = c.Term,
                                       AcademicYear = c.AcademicYear
-                                  };            
+                                  };
+            var cbytrm = from t in db.Teachers
+                          join c in db.Classes on t.TeacherID equals c.TeacherID
+                          join f in db.SchoolForms on c.FormID equals f.FormID
+                          join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                          join tm in db.Terms on c.TermID equals tm.TermID
+                          where t.UserID == uID && c.TermID== trm
+                          orderby c.AcademicYear descending, c.FormID descending
+                          select new
+                          {
+                              ID = c.ClassID,
+                              Subject = c.Subject,
+                              Form = c.SchoolForm,
+                              AcademicTerm = c.Term,
+                              AcademicYear = c.AcademicYear
+                          };
+            
 
             var cbyIDYRTM = from t in db.Teachers
                                   join c in db.Classes on t.TeacherID equals c.TeacherID
@@ -235,10 +236,25 @@ namespace Final
                                   {
                                       ID = c.ClassID,
                                       Subject = c.Subject,
-                                      Form = f.FormName,
+                                      Form = c.SchoolForm,
                                       AcademicTerm = c.Term,
                                       AcademicYear = c.AcademicYear
-                                  };            
+                                  };
+            var cbysub = from t in db.Teachers
+                         join c in db.Classes on t.TeacherID equals c.TeacherID
+                         join f in db.SchoolForms on c.FormID equals f.FormID
+                         join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                         join tm in db.Terms on c.TermID equals tm.TermID
+                         where t.UserID == uID && c.SubjectCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             AcademicTerm = c.Term,
+                             AcademicYear = c.AcademicYear
+                         };
             
             var cbyAll = from t in db.Teachers
                                   join c in db.Classes on t.TeacherID equals c.TeacherID
@@ -251,16 +267,14 @@ namespace Final
                                   {
                                       ID = c.ClassID,
                                       Subject = c.Subject,
-                                      Form = f.FormName,
+                                      Form = c.SchoolForm,
                                       AcademicTerm = c.Term,
                                       AcademicYear = c.AcademicYear
                                   };
+           
             var SbyID = from s in db.Students
                           join sc in db.StudentClasses on s.StudentID equals sc.StudentID
                           join c in db.Classes on sc.ClassID equals c.ClassID
-                          join f in db.SchoolForms on c.FormID equals f.FormID
-                          join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                          join tm in db.Terms on c.TermID equals tm.TermID
                           join t in db.Teachers on c.TeacherID equals t.TeacherID
                           where t.UserID == uID
                           orderby c.AcademicYear descending, c.FormID descending
@@ -271,16 +285,14 @@ namespace Final
                               SID = sc.StudentID,
                               Student = s.FirstName + " " + s.LastName,
                               Subject = c.Subject,
-                              Form = f.FormName,
+                              Form = c.SchoolForm,
                               AcademicYear = c.AcademicYear,
                               AcademicTerm = c.Term
                           };
+
             var SbyIDYR = from s in db.Students
                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
                         join c in db.Classes on sc.ClassID equals c.ClassID
-                        join f in db.SchoolForms on c.FormID equals f.FormID
-                        join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                        join tm in db.Terms on c.TermID equals tm.TermID
                         join t in db.Teachers on c.TeacherID equals t.TeacherID
                         where t.UserID == uID && c.AcademicYear == yr
                         orderby c.AcademicYear descending, c.FormID descending
@@ -291,7 +303,7 @@ namespace Final
                             SID = sc.StudentID,
                             Student = s.FirstName + " " + s.LastName,
                             Subject = c.Subject,
-                            Form = f.FormName,
+                            Form = c.SchoolForm,
                             AcademicYear = c.AcademicYear,
                             AcademicTerm = c.Term
                         };
@@ -299,9 +311,6 @@ namespace Final
             var SbyIDYRTM = from s in db.Students
                           join sc in db.StudentClasses on s.StudentID equals sc.StudentID
                           join c in db.Classes on sc.ClassID equals c.ClassID
-                          join f in db.SchoolForms on c.FormID equals f.FormID
-                          join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                          join tm in db.Terms on c.TermID equals tm.TermID
                           join t in db.Teachers on c.TeacherID equals t.TeacherID
                            where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
                           orderby c.AcademicYear descending, c.FormID descending
@@ -312,7 +321,7 @@ namespace Final
                               SID = sc.StudentID,
                               Student = s.FirstName + " " + s.LastName,
                               Subject = c.Subject,
-                              Form = f.FormName,
+                              Form = c.SchoolForm,
                               AcademicYear = c.AcademicYear,
                               AcademicTerm = c.Term
                           };
@@ -320,9 +329,6 @@ namespace Final
             var SbyAll = from s in db.Students
                            join sc in db.StudentClasses on s.StudentID equals sc.StudentID
                            join c in db.Classes on sc.ClassID equals c.ClassID
-                           join f in db.SchoolForms on c.FormID equals f.FormID
-                           join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                           join tm in db.Terms on c.TermID equals tm.TermID
                            join t in db.Teachers on c.TeacherID equals t.TeacherID
                            where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub
                            orderby c.AcademicYear descending, c.FormID descending
@@ -333,31 +339,87 @@ namespace Final
                                SID = sc.StudentID,
                                Student = s.FirstName + " " + s.LastName,
                                Subject = c.Subject,
-                               Form = f.FormName,
+                               Form = c.SchoolForm,
                                AcademicYear = c.AcademicYear,
                                AcademicTerm = c.Term
                            };
 
             if (TeacherTabs.SelectedTab == TeacherTabs.TabPages["TAccountTab"] || TeacherTabs.SelectedTab == TeacherTabs.TabPages["ClassTaughtTab"])
             {
+                
                 if (yr == "" & trm <= 0 & sub <= 0)
                 {
-                    teachercoursesGV.DataSource = cbyID.ToList();
+                    if (cbyID.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyID.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+                                 
+                }
+
+
+                if (yr == "" & trm > 0 & sub <= 0)
+                {
+                    if (cbytrm.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbytrm.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+
+                }
+
+                if (yr == "" & trm <= 0 & sub > 0)
+                {
+                    if (cbysub.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbysub.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
                 }
 
                 if (yr != "" & trm <= 0 & sub <= 0)
                 {
-                    teachercoursesGV.DataSource = cbyIDYR.ToList();
+                    if (cbyIDYR.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyIDYR.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
                 }
 
                 if (yr != "" & trm != 0 & sub <= 0)
                 {
-                    teachercoursesGV.DataSource = cbyIDYRTM.ToList();
+                    if (cbyIDYRTM.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyIDYRTM.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
                 }
 
                 if (yr != "" & trm != 0 & sub != 0)
                 {
-                    teachercoursesGV.DataSource = cbyAll.ToList();
+                    if (cbyIDYRTM.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyAll.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
                 }
             }
 
@@ -437,117 +499,7 @@ namespace Final
             }
         }
    
-        private void CTTermCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var subject= (from t in db.Teachers
-                            join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                            join c in db.Classes on t.TeacherID equals c.TeacherID
-                            join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                            join trm in db.Terms on c.TermID equals trm.TermID
-                            where t.UserID == uID && c.AcademicYear == CTAcademicperiodCB.Text && trm.TermName == CTTermCB.Text
-                            select sub).Distinct();
-
-            ctSubjectCB.DataSource = subject.ToList();
-            ctSubjectCB.DisplayMember = "SubjectName";
-            ctSubjectCB.ValueMember = "SubjectCode";
-            ctSubjectCB.SelectedIndex = -1;
-
-        }
-
-        private void scAcademicYrCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var Term = (from t in db.Teachers
-                        join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                        join c in db.Classes on t.TeacherID equals c.TeacherID
-                        join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                        join trm in db.Terms on c.TermID equals trm.TermID
-                        where t.UserID == uID && c.AcademicYear == scAcademicYrCB.Text
-                        select trm).Distinct();
-
-            var subject = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == scAcademicYrCB.Text && trm.TermName == scTermCB.Text
-                           select sub).Distinct();
-
-            scTermCB.DataSource = Term.ToList();
-            scTermCB.DisplayMember = "TermName";
-            scTermCB.ValueMember = "TermID";
-            scTermCB.SelectedIndex = -1;
-
-            scSubjectCB.DataSource = subject.ToList();
-            scSubjectCB.DisplayMember = "SubjectName";
-            scSubjectCB.ValueMember = "SubjectCode";
-            scSubjectCB.SelectedIndex = -1;
-                  
-            
-            
-        }
-
-        private void scTermCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var subject = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == scAcademicYrCB.Text && trm.TermName == scTermCB.Text
-                           select sub).Distinct();
-                                
-            scSubjectCB.DataSource = subject.ToList();
-            scSubjectCB.DisplayMember = "SubjectName";
-            scSubjectCB.ValueMember = "SubjectCode";
-            scSubjectCB.SelectedIndex = -1;
-        }
-
-        private void clAcademicYrCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var Term = (from t in db.Teachers
-                        join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                        join c in db.Classes on t.TeacherID equals c.TeacherID
-                        join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                        join trm in db.Terms on c.TermID equals trm.TermID
-                        where t.UserID == uID && c.AcademicYear == clAcademicYrCB.Text
-                        select trm).Distinct();
-
-            var subject = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == clAcademicYrCB.Text && trm.TermName == clTermCB.Text
-                           select sub).Distinct();
-
-            clTermCB.DataSource = Term.ToList();
-            clTermCB.DisplayMember = "TermName";
-            clTermCB.ValueMember = "TermID";
-            clTermCB.SelectedIndex = -1;
-
-            clSubjectCB.DataSource = subject.ToList();
-            clSubjectCB.DisplayMember = "SubjectName";
-            clSubjectCB.ValueMember = "SubjectCode";
-            clSubjectCB.SelectedIndex = -1;
-
-            
-        }
-
-        private void clTermCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var subject = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == clAcademicYrCB.Text && trm.TermName == clTermCB.Text
-                           select sub).Distinct();
-            
-            clSubjectCB.DataSource = subject.ToList();
-            clSubjectCB.DisplayMember = "SubjectName";
-            clSubjectCB.ValueMember = "SubjectCode";
-            clSubjectCB.SelectedIndex = -1;
-        }
+        
 
         private void ctGetDatabtn_Click(object sender, EventArgs e)
         {
@@ -641,17 +593,34 @@ namespace Final
                             Form = c.SchoolForm.FormName,
                             //AcademicYear = c.AcademicYear,
                            // AcademicTerm = c.Term
-                            //Status = "Pending"
+                            Status = "Pending"
                         };
             classapprovallistGV.DataSource = clist.ToList();
 
-            DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
-            cmb.HeaderText = "Status";
-            cmb.Name = "cmb";
-            cmb.MaxDropDownItems = 2;
-            cmb.Items.Add("Approved");
-            cmb.Items.Add("Deferred");
-            classapprovallistGV.Columns.Add(cmb);
+            //DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
+            
+            //cmb.Name = "cmb";
+            //cmb.MaxDropDownItems = 2;
+            //cmb.Items.Add("Approved");
+            //cmb.Items.Add("Deferred");
+            //cmb.DataSource = clist.Select(x => x.Status);
+            //classapprovallistGV.Columns.Add(cmb);
+
+            //DataGridViewLinkColumn Editlink = new DataGridViewLinkColumn();
+            //Editlink.UseColumnTextForLinkValue = true;
+            //Editlink.HeaderText = "Edit"; 
+            //Editlink.DataPropertyName = "lnkColumn"; 
+            //Editlink.LinkBehavior = LinkBehavior.SystemDefault; 
+            //Editlink.Text = "Edit";
+            //classapprovallistGV.Columns.Add(Editlink);
+
+            //DataGridViewLinkColumn Deletelink = new DataGridViewLinkColumn();
+            //Deletelink.UseColumnTextForLinkValue = true;
+            //Deletelink.HeaderText = "Delete";
+            //Deletelink.DataPropertyName = "lnkColumn";
+            //Deletelink.LinkBehavior = LinkBehavior.SystemDefault;
+            //Deletelink.Text = "Delete";
+            //classapprovallistGV.Columns.Add(Deletelink);
            
         }
 
@@ -864,47 +833,12 @@ namespace Final
 
         private void gAcademicYrCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var Term = (from t in db.Teachers
-                        join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                        join c in db.Classes on t.TeacherID equals c.TeacherID
-                        join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                        join trm in db.Terms on c.TermID equals trm.TermID
-                        where t.UserID == uID && c.AcademicYear == gAcademicYrCB.Text
-                        select trm).Distinct();
 
-            var subject = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == gAcademicYrCB.Text && trm.TermName == gTermCB.Text
-                           select sub).Distinct();
-
-            gTermCB.DataSource = Term.ToList();
-            gTermCB.DisplayMember = "TermName";
-            gTermCB.ValueMember = "TermID";
-            gTermCB.SelectedIndex = -1;
-
-            gSubjectCB.DataSource = subject.ToList();
-            gSubjectCB.DisplayMember = "SubjectName";
-            gSubjectCB.ValueMember = "SubjectCode";
-            gSubjectCB.SelectedIndex = -1;
         }
 
         private void gTermCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var subject = (from t in db.Teachers
-                           join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
-                           join c in db.Classes on t.TeacherID equals c.TeacherID
-                           join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
-                           join trm in db.Terms on c.TermID equals trm.TermID
-                           where t.UserID == uID && c.AcademicYear == gAcademicYrCB.Text && trm.TermName == gTermCB.Text
-                           select sub).Distinct();
 
-            gSubjectCB.DataSource = subject.ToList();
-            gSubjectCB.DisplayMember = "SubjectName";
-            gSubjectCB.ValueMember = "SubjectCode";
-            gSubjectCB.SelectedIndex = -1;
         }
 
         private void gCancelBtn_Click(object sender, EventArgs e)

@@ -116,10 +116,16 @@
             this.crSNameTB = new System.Windows.Forms.TextBox();
             this.crStudentIDTB = new System.Windows.Forms.TextBox();
             this.crStudentIDlbl = new System.Windows.Forms.Label();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.ClassListGV = new System.Windows.Forms.DataGridView();
+            this.right1Btn = new System.Windows.Forms.Button();
+            this.left1Btn = new System.Windows.Forms.Button();
+            this.leftBtn = new System.Windows.Forms.Button();
+            this.rightBtn = new System.Windows.Forms.Button();
+            this.RightGB = new System.Windows.Forms.GroupBox();
+            this.dataGrid2 = new System.Windows.Forms.DataGrid();
             this.registeredClassesGV = new System.Windows.Forms.DataGridView();
-            this.TestGrid = new System.Windows.Forms.DataGrid();
+            this.leftGB = new System.Windows.Forms.GroupBox();
+            this.dataGrid1 = new System.Windows.Forms.DataGrid();
+            this.ClassListGV = new System.Windows.Forms.DataGridView();
             this.RegistrationTabs.SuspendLayout();
             this.RegistrationTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -143,13 +149,12 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.crSortingGB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ClassListGV)).BeginInit();
+            this.RightGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registeredClassesGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TestGrid)).BeginInit();
+            this.leftGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClassListGV)).BeginInit();
             this.SuspendLayout();
             // 
             // RegistrationTabs
@@ -160,7 +165,7 @@
             this.RegistrationTabs.Location = new System.Drawing.Point(0, 0);
             this.RegistrationTabs.Name = "RegistrationTabs";
             this.RegistrationTabs.SelectedIndex = 0;
-            this.RegistrationTabs.Size = new System.Drawing.Size(708, 624);
+            this.RegistrationTabs.Size = new System.Drawing.Size(794, 624);
             this.RegistrationTabs.TabIndex = 0;
             // 
             // RegistrationTab
@@ -171,7 +176,7 @@
             this.RegistrationTab.Location = new System.Drawing.Point(4, 22);
             this.RegistrationTab.Name = "RegistrationTab";
             this.RegistrationTab.Padding = new System.Windows.Forms.Padding(3);
-            this.RegistrationTab.Size = new System.Drawing.Size(700, 598);
+            this.RegistrationTab.Size = new System.Drawing.Size(786, 598);
             this.RegistrationTab.TabIndex = 0;
             this.RegistrationTab.Text = "Student Registration";
             this.RegistrationTab.UseVisualStyleBackColor = true;
@@ -849,7 +854,7 @@
             this.ClassRegistrationTab.Location = new System.Drawing.Point(4, 22);
             this.ClassRegistrationTab.Name = "ClassRegistrationTab";
             this.ClassRegistrationTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ClassRegistrationTab.Size = new System.Drawing.Size(700, 598);
+            this.ClassRegistrationTab.Size = new System.Drawing.Size(786, 598);
             this.ClassRegistrationTab.TabIndex = 1;
             this.ClassRegistrationTab.Text = "ClassRegistration";
             this.ClassRegistrationTab.UseVisualStyleBackColor = true;
@@ -875,8 +880,13 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer2.Size = new System.Drawing.Size(694, 592);
+            this.splitContainer2.Panel2.Controls.Add(this.right1Btn);
+            this.splitContainer2.Panel2.Controls.Add(this.left1Btn);
+            this.splitContainer2.Panel2.Controls.Add(this.leftBtn);
+            this.splitContainer2.Panel2.Controls.Add(this.rightBtn);
+            this.splitContainer2.Panel2.Controls.Add(this.RightGB);
+            this.splitContainer2.Panel2.Controls.Add(this.leftGB);
+            this.splitContainer2.Size = new System.Drawing.Size(780, 592);
             this.splitContainer2.SplitterDistance = 170;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -1023,59 +1033,113 @@
             this.crStudentIDlbl.TabIndex = 92;
             this.crStudentIDlbl.Text = "Student ID";
             // 
-            // splitContainer4
+            // right1Btn
             // 
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer4.Name = "splitContainer4";
+            this.right1Btn.Location = new System.Drawing.Point(329, 113);
+            this.right1Btn.Name = "right1Btn";
+            this.right1Btn.Size = new System.Drawing.Size(48, 23);
+            this.right1Btn.TabIndex = 106;
+            this.right1Btn.Text = "<";
+            this.right1Btn.UseVisualStyleBackColor = true;
             // 
-            // splitContainer4.Panel1
+            // left1Btn
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.TestGrid);
-            this.splitContainer4.Panel1.Controls.Add(this.ClassListGV);
+            this.left1Btn.Location = new System.Drawing.Point(330, 57);
+            this.left1Btn.Name = "left1Btn";
+            this.left1Btn.Size = new System.Drawing.Size(47, 23);
+            this.left1Btn.TabIndex = 105;
+            this.left1Btn.Text = ">";
+            this.left1Btn.UseVisualStyleBackColor = true;
+            this.left1Btn.Click += new System.EventHandler(this.left1Btn_Click);
             // 
-            // splitContainer4.Panel2
+            // leftBtn
             // 
-            this.splitContainer4.Panel2.Controls.Add(this.registeredClassesGV);
-            this.splitContainer4.Size = new System.Drawing.Size(694, 418);
-            this.splitContainer4.SplitterDistance = 331;
-            this.splitContainer4.TabIndex = 0;
+            this.leftBtn.Location = new System.Drawing.Point(329, 139);
+            this.leftBtn.Name = "leftBtn";
+            this.leftBtn.Size = new System.Drawing.Size(48, 23);
+            this.leftBtn.TabIndex = 104;
+            this.leftBtn.Text = "<<";
+            this.leftBtn.UseVisualStyleBackColor = true;
+            // 
+            // rightBtn
+            // 
+            this.rightBtn.Location = new System.Drawing.Point(330, 86);
+            this.rightBtn.Name = "rightBtn";
+            this.rightBtn.Size = new System.Drawing.Size(47, 23);
+            this.rightBtn.TabIndex = 103;
+            this.rightBtn.Text = ">>";
+            this.rightBtn.UseVisualStyleBackColor = true;
+            this.rightBtn.Click += new System.EventHandler(this.rightBtn_Click);
+            // 
+            // RightGB
+            // 
+            this.RightGB.Controls.Add(this.dataGrid2);
+            this.RightGB.Controls.Add(this.registeredClassesGV);
+            this.RightGB.Location = new System.Drawing.Point(375, 3);
+            this.RightGB.Name = "RightGB";
+            this.RightGB.Size = new System.Drawing.Size(400, 317);
+            this.RightGB.TabIndex = 1;
+            this.RightGB.TabStop = false;
+            this.RightGB.Text = "Registered Classes";
+            // 
+            // dataGrid2
+            // 
+            this.dataGrid2.DataMember = "";
+            this.dataGrid2.HeaderForeColor = System.Drawing.SystemColors.ControlText;
+            this.dataGrid2.Location = new System.Drawing.Point(6, 165);
+            this.dataGrid2.Name = "dataGrid2";
+            this.dataGrid2.Size = new System.Drawing.Size(391, 146);
+            this.dataGrid2.TabIndex = 3;
+            // 
+            // registeredClassesGV
+            // 
+            this.registeredClassesGV.AllowDrop = true;
+            this.registeredClassesGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.registeredClassesGV.Location = new System.Drawing.Point(3, 16);
+            this.registeredClassesGV.Name = "registeredClassesGV";
+            this.registeredClassesGV.Size = new System.Drawing.Size(394, 143);
+            this.registeredClassesGV.TabIndex = 2;
+            // 
+            // leftGB
+            // 
+            this.leftGB.Controls.Add(this.dataGrid1);
+            this.leftGB.Controls.Add(this.ClassListGV);
+            this.leftGB.Location = new System.Drawing.Point(5, 3);
+            this.leftGB.Name = "leftGB";
+            this.leftGB.Size = new System.Drawing.Size(326, 317);
+            this.leftGB.TabIndex = 0;
+            this.leftGB.TabStop = false;
+            this.leftGB.Text = "Available Classes";
+            // 
+            // dataGrid1
+            // 
+            this.dataGrid1.DataMember = "";
+            this.dataGrid1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
+            this.dataGrid1.Location = new System.Drawing.Point(3, 166);
+            this.dataGrid1.Name = "dataGrid1";
+            this.dataGrid1.Size = new System.Drawing.Size(320, 145);
+            this.dataGrid1.TabIndex = 4;
             // 
             // ClassListGV
             // 
+            this.ClassListGV.AllowDrop = true;
             this.ClassListGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ClassListGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.ClassListGV.BackgroundColor = System.Drawing.Color.White;
             this.ClassListGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ClassListGV.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClassListGV.Location = new System.Drawing.Point(3, 3);
+            this.ClassListGV.Location = new System.Drawing.Point(3, 16);
             this.ClassListGV.Name = "ClassListGV";
-            this.ClassListGV.Size = new System.Drawing.Size(322, 178);
-            this.ClassListGV.TabIndex = 1;
-            // 
-            // registeredClassesGV
-            // 
-            this.registeredClassesGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.registeredClassesGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.registeredClassesGV.Location = new System.Drawing.Point(0, 0);
-            this.registeredClassesGV.Name = "registeredClassesGV";
-            this.registeredClassesGV.Size = new System.Drawing.Size(359, 418);
-            this.registeredClassesGV.TabIndex = 0;
-            // 
-            // TestGrid
-            // 
-            this.TestGrid.DataMember = "";
-            this.TestGrid.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-            this.TestGrid.Location = new System.Drawing.Point(6, 203);
-            this.TestGrid.Name = "TestGrid";
-            this.TestGrid.Size = new System.Drawing.Size(322, 144);
-            this.TestGrid.TabIndex = 2;
+            this.ClassListGV.Size = new System.Drawing.Size(320, 143);
+            this.ClassListGV.TabIndex = 3;
+            this.ClassListGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClassListGV_CellContentClick);
+            this.ClassListGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClassListGV_CellContentDoubleClick);
             // 
             // frmStudentRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 624);
+            this.ClientSize = new System.Drawing.Size(794, 624);
             this.Controls.Add(this.RegistrationTabs);
             this.Name = "frmStudentRegistration";
             this.Text = "New Student Registration";
@@ -1110,13 +1174,12 @@
             this.splitContainer2.ResumeLayout(false);
             this.crSortingGB.ResumeLayout(false);
             this.crSortingGB.PerformLayout();
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ClassListGV)).EndInit();
+            this.RightGB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registeredClassesGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TestGrid)).EndInit();
+            this.leftGB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClassListGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1211,10 +1274,16 @@
         private System.Windows.Forms.Label Termlbl;
         public System.Windows.Forms.ComboBox crAcademicPCB;
         private System.Windows.Forms.Label acadperiodlbl;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.DataGridView ClassListGV;
+        private System.Windows.Forms.Button leftBtn;
+        private System.Windows.Forms.Button rightBtn;
+        private System.Windows.Forms.GroupBox RightGB;
         private System.Windows.Forms.DataGridView registeredClassesGV;
-        private System.Windows.Forms.DataGrid TestGrid;
+        private System.Windows.Forms.GroupBox leftGB;
+        private System.Windows.Forms.DataGridView ClassListGV;
+        private System.Windows.Forms.Button right1Btn;
+        private System.Windows.Forms.Button left1Btn;
+        private System.Windows.Forms.DataGrid dataGrid2;
+        private System.Windows.Forms.DataGrid dataGrid1;
 
 
     }
