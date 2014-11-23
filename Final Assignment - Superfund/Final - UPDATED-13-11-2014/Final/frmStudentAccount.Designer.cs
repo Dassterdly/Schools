@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Academic Year", System.Windows.Forms.HorizontalAlignment.Left);
             this.FormTB = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.SchoolTB = new System.Windows.Forms.TextBox();
@@ -65,6 +65,7 @@
             this.resultsGB = new System.Windows.Forms.GroupBox();
             this.studentclassesGV = new System.Windows.Forms.DataGridView();
             this.sortGB = new System.Windows.Forms.GroupBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.SortingGB = new System.Windows.Forms.GroupBox();
             this.TermCB = new System.Windows.Forms.ComboBox();
             this.Termlbl = new System.Windows.Forms.Label();
@@ -380,13 +381,13 @@
             // GradebookListView
             // 
             this.GradebookListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            listViewGroup1.Header = "Academic Year";
-            listViewGroup1.Name = "2013-2014";
-            listViewGroup2.Header = "Academic Year";
-            listViewGroup2.Name = "2014-2015";
+            listViewGroup5.Header = "Academic Year";
+            listViewGroup5.Name = "2013-2014";
+            listViewGroup6.Header = "Academic Year";
+            listViewGroup6.Name = "2014-2015";
             this.GradebookListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
+            listViewGroup5,
+            listViewGroup6});
             this.GradebookListView.Location = new System.Drawing.Point(0, 0);
             this.GradebookListView.Name = "GradebookListView";
             this.GradebookListView.Size = new System.Drawing.Size(859, 285);
@@ -461,9 +462,11 @@
             this.studentclassesGV.Size = new System.Drawing.Size(827, 268);
             this.studentclassesGV.TabIndex = 1;
             this.studentclassesGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentclassesGV_CellClick);
+            this.studentclassesGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentclassesGV_CellContentClick);
             // 
             // sortGB
             // 
+            this.sortGB.Controls.Add(this.btnReport);
             this.sortGB.Controls.Add(this.SortingGB);
             this.sortGB.Controls.Add(this.label18);
             this.sortGB.Controls.Add(this.label19);
@@ -478,6 +481,16 @@
             this.sortGB.Size = new System.Drawing.Size(827, 110);
             this.sortGB.TabIndex = 1;
             this.sortGB.TabStop = false;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(708, 78);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(80, 31);
+            this.btnReport.TabIndex = 50;
+            this.btnReport.Text = "&Report";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // SortingGB
             // 
@@ -579,9 +592,9 @@
             // 
             // RefreshBtn
             // 
-            this.RefreshBtn.Location = new System.Drawing.Point(706, 31);
+            this.RefreshBtn.Location = new System.Drawing.Point(708, 0);
             this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(82, 30);
+            this.RefreshBtn.Size = new System.Drawing.Size(80, 41);
             this.RefreshBtn.TabIndex = 5;
             this.RefreshBtn.Text = "Refresh";
             this.RefreshBtn.UseVisualStyleBackColor = true;
@@ -589,7 +602,7 @@
             // 
             // Searchbtn
             // 
-            this.Searchbtn.Location = new System.Drawing.Point(706, 67);
+            this.Searchbtn.Location = new System.Drawing.Point(708, 43);
             this.Searchbtn.Name = "Searchbtn";
             this.Searchbtn.Size = new System.Drawing.Size(80, 33);
             this.Searchbtn.TabIndex = 4;
@@ -994,5 +1007,6 @@
         private System.Windows.Forms.TextBox GBStudentNameTB;
         private System.Windows.Forms.DataGridView studentparentGridView;
         private System.Windows.Forms.GroupBox SortingGB;
+        private System.Windows.Forms.Button btnReport;
     }
 }

@@ -50,10 +50,8 @@ namespace Final
             frmTeacherAccount teacherfrm = new frmTeacherAccount();
             teacherfrm.uIDlbl.Text = uIDlbl.Text;
             teacherfrm.Show();
-
-
-            
         }
+
 
         private void accountToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -83,6 +81,11 @@ namespace Final
         {
             frmClassScheduling newClass = new frmClassScheduling();
             newClass.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

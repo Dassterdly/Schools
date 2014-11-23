@@ -108,3 +108,4 @@ C:\Users\Kima\Desktop\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.csproj.Ge
 \\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmTeacherAccount.resources
 \\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.Properties.Resources.resources
 \\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Desktop\Schools Project\Schools\Final Assignment - Superfund\Final - UPDATED-13-11-2014\Final\obj\Debug\Final.frmPrintOptions.resources

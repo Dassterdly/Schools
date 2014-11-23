@@ -1,4 +1,6 @@
-﻿namespace Final
+﻿
+
+namespace Final
 {
     partial class frmParentAccount
     {

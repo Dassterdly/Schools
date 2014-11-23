@@ -34,7 +34,8 @@ namespace Final
             LoadStudentParents();
             fillcombobox();
             LoadStudentClasses(Convert.ToInt32(TermCB.SelectedValue), AcademicPCB.Text);
-            hidecols();
+            studentclassesGV.Columns["ID"].Visible = false;
+            studentclassesGV.Columns["SubjectCode"].Visible = false;
             LoadGradeBook();
 
         }
@@ -43,6 +44,9 @@ namespace Final
         {
             studentclassesGV.Columns["ID"].Visible = false;
             studentclassesGV.Columns["SubjectCode"].Visible = false;
+            studentclassesGV.Columns["Form"].Visible = false;
+            studentclassesGV.Columns["AcademicTerm"].Visible = false;
+            studentclassesGV.Columns["AcademicYear"].Visible = false;
         }
 
         private void LoadStudentProfile()
@@ -377,6 +381,16 @@ namespace Final
 
 
 
+        }
+
+        private void studentclassesGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            PrintReportfromDGV.Print_DataGridView(studentclassesGV);
         }
             
            

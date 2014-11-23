@@ -63,6 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.uTypelbl = new System.Windows.Forms.Label();
             this.uNamelbl = new System.Windows.Forms.Label();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuContextStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,7 +79,8 @@
             this.teacherToolStripMenuItem,
             this.administrativeStaffToolStripMenuItem,
             this.administratorToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.MainMenuContextStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuContextStrip.Name = "MainMenuContextStrip";
             this.MainMenuContextStrip.Size = new System.Drawing.Size(649, 24);
@@ -98,21 +100,21 @@
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.accountToolStripMenuItem.Text = "Account";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
             // scheduleToolStripMenuItem
             // 
             this.scheduleToolStripMenuItem.Name = "scheduleToolStripMenuItem";
-            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.scheduleToolStripMenuItem.Text = "Schedule";
             this.scheduleToolStripMenuItem.Click += new System.EventHandler(this.scheduleToolStripMenuItem_Click);
             // 
             // gradeBookToolStripMenuItem
             // 
             this.gradeBookToolStripMenuItem.Name = "gradeBookToolStripMenuItem";
-            this.gradeBookToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.gradeBookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gradeBookToolStripMenuItem.Text = "Grade Book";
             this.gradeBookToolStripMenuItem.Click += new System.EventHandler(this.gradeBookToolStripMenuItem_Click);
             // 
@@ -349,6 +351,13 @@
             this.uNamelbl.TabIndex = 3;
             this.uNamelbl.Text = "Username , ";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,5 +416,6 @@
         public System.Windows.Forms.Label uTypelbl;
         public System.Windows.Forms.Label uNamelbl;
         public System.Windows.Forms.Label uIDlbl;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

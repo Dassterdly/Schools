@@ -53,6 +53,24 @@
             this.clTeacherIDTB = new System.Windows.Forms.TextBox();
             this.clTeacherNamelbl = new System.Windows.Forms.Label();
             this.clTcherIDlbl = new System.Windows.Forms.Label();
+            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.classapprovallistGV = new System.Windows.Forms.DataGridView();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.updateGB = new System.Windows.Forms.GroupBox();
+            this.OfficialGB = new System.Windows.Forms.GroupBox();
+            this.TApprovalTB = new System.Windows.Forms.TextBox();
+            this.ApprovedBylbl = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Signofflbl = new System.Windows.Forms.Label();
+            this.msglbl = new System.Windows.Forms.Label();
+            this.statusCB = new System.Windows.Forms.ComboBox();
+            this.gradetb = new System.Windows.Forms.TextBox();
+            this.firstnameTB = new System.Windows.Forms.TextBox();
+            this.statuslbl = new System.Windows.Forms.Label();
+            this.Gradelbl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.UpdateBtn = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.scAcademichyrlbl = new System.Windows.Forms.Label();
             this.scSchoollbl = new System.Windows.Forms.Label();
@@ -140,8 +158,8 @@
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.gStudentsGV = new System.Windows.Forms.DataGridView();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.AddBtn = new System.Windows.Forms.Button();
             this.gStudentAssGV = new System.Windows.Forms.DataGridView();
+            this.AddBtn = new System.Windows.Forms.Button();
             this.NewAssessmentGB = new System.Windows.Forms.GroupBox();
             this.gCancelBtn = new System.Windows.Forms.Button();
             this.SaveABtn = new System.Windows.Forms.Button();
@@ -149,24 +167,6 @@
             this.gScorelbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.AssesDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.classapprovallistGV = new System.Windows.Forms.DataGridView();
-            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.UpdateBtn = new System.Windows.Forms.Button();
-            this.SaveBtn = new System.Windows.Forms.Button();
-            this.updateGB = new System.Windows.Forms.GroupBox();
-            this.msglbl = new System.Windows.Forms.Label();
-            this.statusCB = new System.Windows.Forms.ComboBox();
-            this.gradetb = new System.Windows.Forms.TextBox();
-            this.firstnameTB = new System.Windows.Forms.TextBox();
-            this.statuslbl = new System.Windows.Forms.Label();
-            this.Gradelbl = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TApprovalTB = new System.Windows.Forms.TextBox();
-            this.ApprovedBylbl = new System.Windows.Forms.Label();
-            this.Signofflbl = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.OfficialGB = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.studentclasslistGV)).BeginInit();
             this.ClassApprovalTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
@@ -174,6 +174,17 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.clSortingGB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
+            this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
+            this.splitContainer7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
+            this.splitContainer8.Panel1.SuspendLayout();
+            this.splitContainer8.Panel2.SuspendLayout();
+            this.splitContainer8.SuspendLayout();
+            this.updateGB.SuspendLayout();
+            this.OfficialGB.SuspendLayout();
             this.TeacherTabs.SuspendLayout();
             this.TAccountTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -209,17 +220,6 @@
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gStudentAssGV)).BeginInit();
             this.NewAssessmentGB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
-            this.splitContainer7.Panel1.SuspendLayout();
-            this.splitContainer7.Panel2.SuspendLayout();
-            this.splitContainer7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
-            this.splitContainer8.Panel1.SuspendLayout();
-            this.splitContainer8.Panel2.SuspendLayout();
-            this.splitContainer8.SuspendLayout();
-            this.updateGB.SuspendLayout();
-            this.OfficialGB.SuspendLayout();
             this.SuspendLayout();
             // 
             // scTermCB
@@ -268,6 +268,7 @@
             this.studentclasslistGV.Name = "studentclasslistGV";
             this.studentclasslistGV.Size = new System.Drawing.Size(762, 326);
             this.studentclasslistGV.TabIndex = 0;
+            this.studentclasslistGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentclasslistGV_CellContentClick);
             // 
             // ClassApprovalTab
             // 
@@ -465,6 +466,200 @@
             this.clTcherIDlbl.Size = new System.Drawing.Size(61, 13);
             this.clTcherIDlbl.TabIndex = 10;
             this.clTcherIDlbl.Text = "Teacher ID";
+            // 
+            // splitContainer7
+            // 
+            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer7.Name = "splitContainer7";
+            this.splitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer7.Panel1
+            // 
+            this.splitContainer7.Panel1.Controls.Add(this.classapprovallistGV);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.splitContainer8);
+            this.splitContainer7.Size = new System.Drawing.Size(765, 342);
+            this.splitContainer7.SplitterDistance = 198;
+            this.splitContainer7.TabIndex = 0;
+            // 
+            // classapprovallistGV
+            // 
+            this.classapprovallistGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.classapprovallistGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.classapprovallistGV.BackgroundColor = System.Drawing.Color.White;
+            this.classapprovallistGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classapprovallistGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classapprovallistGV.Location = new System.Drawing.Point(0, 0);
+            this.classapprovallistGV.Name = "classapprovallistGV";
+            this.classapprovallistGV.Size = new System.Drawing.Size(765, 198);
+            this.classapprovallistGV.TabIndex = 1;
+            // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer8.Name = "splitContainer8";
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.updateGB);
+            // 
+            // splitContainer8.Panel2
+            // 
+            this.splitContainer8.Panel2.Controls.Add(this.UpdateBtn);
+            this.splitContainer8.Panel2.Controls.Add(this.SaveBtn);
+            this.splitContainer8.Size = new System.Drawing.Size(765, 140);
+            this.splitContainer8.SplitterDistance = 587;
+            this.splitContainer8.TabIndex = 1;
+            // 
+            // updateGB
+            // 
+            this.updateGB.Controls.Add(this.OfficialGB);
+            this.updateGB.Controls.Add(this.msglbl);
+            this.updateGB.Controls.Add(this.statusCB);
+            this.updateGB.Controls.Add(this.gradetb);
+            this.updateGB.Controls.Add(this.firstnameTB);
+            this.updateGB.Controls.Add(this.statuslbl);
+            this.updateGB.Controls.Add(this.Gradelbl);
+            this.updateGB.Controls.Add(this.label7);
+            this.updateGB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.updateGB.Location = new System.Drawing.Point(0, 0);
+            this.updateGB.Name = "updateGB";
+            this.updateGB.Size = new System.Drawing.Size(587, 140);
+            this.updateGB.TabIndex = 0;
+            this.updateGB.TabStop = false;
+            this.updateGB.Text = "Student Class Approval";
+            // 
+            // OfficialGB
+            // 
+            this.OfficialGB.Controls.Add(this.TApprovalTB);
+            this.OfficialGB.Controls.Add(this.ApprovedBylbl);
+            this.OfficialGB.Controls.Add(this.textBox2);
+            this.OfficialGB.Controls.Add(this.Signofflbl);
+            this.OfficialGB.Location = new System.Drawing.Point(333, 24);
+            this.OfficialGB.Name = "OfficialGB";
+            this.OfficialGB.Size = new System.Drawing.Size(235, 100);
+            this.OfficialGB.TabIndex = 20;
+            this.OfficialGB.TabStop = false;
+            this.OfficialGB.Text = "Official Approval";
+            // 
+            // TApprovalTB
+            // 
+            this.TApprovalTB.Location = new System.Drawing.Point(107, 19);
+            this.TApprovalTB.Name = "TApprovalTB";
+            this.TApprovalTB.ReadOnly = true;
+            this.TApprovalTB.Size = new System.Drawing.Size(121, 20);
+            this.TApprovalTB.TabIndex = 17;
+            // 
+            // ApprovedBylbl
+            // 
+            this.ApprovedBylbl.AutoSize = true;
+            this.ApprovedBylbl.Location = new System.Drawing.Point(9, 22);
+            this.ApprovedBylbl.Name = "ApprovedBylbl";
+            this.ApprovedBylbl.Size = new System.Drawing.Size(92, 13);
+            this.ApprovedBylbl.TabIndex = 16;
+            this.ApprovedBylbl.Text = "Teacher Approval";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(107, 48);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(121, 20);
+            this.textBox2.TabIndex = 19;
+            // 
+            // Signofflbl
+            // 
+            this.Signofflbl.AutoSize = true;
+            this.Signofflbl.Location = new System.Drawing.Point(41, 49);
+            this.Signofflbl.Name = "Signofflbl";
+            this.Signofflbl.Size = new System.Drawing.Size(60, 13);
+            this.Signofflbl.TabIndex = 18;
+            this.Signofflbl.Text = "Sign Off By";
+            // 
+            // msglbl
+            // 
+            this.msglbl.AutoSize = true;
+            this.msglbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msglbl.Location = new System.Drawing.Point(226, 64);
+            this.msglbl.Name = "msglbl";
+            this.msglbl.Size = new System.Drawing.Size(101, 13);
+            this.msglbl.TabIndex = 15;
+            this.msglbl.Text = "( Percentage % )";
+            // 
+            // statusCB
+            // 
+            this.statusCB.FormattingEnabled = true;
+            this.statusCB.Items.AddRange(new object[] {
+            "Approved",
+            "Deferred"});
+            this.statusCB.Location = new System.Drawing.Point(89, 92);
+            this.statusCB.Name = "statusCB";
+            this.statusCB.Size = new System.Drawing.Size(131, 21);
+            this.statusCB.TabIndex = 14;
+            // 
+            // gradetb
+            // 
+            this.gradetb.Location = new System.Drawing.Point(89, 61);
+            this.gradetb.Name = "gradetb";
+            this.gradetb.Size = new System.Drawing.Size(131, 20);
+            this.gradetb.TabIndex = 13;
+            // 
+            // firstnameTB
+            // 
+            this.firstnameTB.Location = new System.Drawing.Point(89, 34);
+            this.firstnameTB.Name = "firstnameTB";
+            this.firstnameTB.ReadOnly = true;
+            this.firstnameTB.Size = new System.Drawing.Size(231, 20);
+            this.firstnameTB.TabIndex = 12;
+            // 
+            // statuslbl
+            // 
+            this.statuslbl.AutoSize = true;
+            this.statuslbl.Location = new System.Drawing.Point(46, 99);
+            this.statuslbl.Name = "statuslbl";
+            this.statuslbl.Size = new System.Drawing.Size(37, 13);
+            this.statuslbl.TabIndex = 11;
+            this.statuslbl.Text = "Status";
+            // 
+            // Gradelbl
+            // 
+            this.Gradelbl.AutoSize = true;
+            this.Gradelbl.Location = new System.Drawing.Point(47, 68);
+            this.Gradelbl.Name = "Gradelbl";
+            this.Gradelbl.Size = new System.Drawing.Size(36, 13);
+            this.Gradelbl.TabIndex = 10;
+            this.Gradelbl.Text = "Grade";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(8, 37);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Student Name";
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Location = new System.Drawing.Point(61, 12);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(75, 38);
+            this.UpdateBtn.TabIndex = 2;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Location = new System.Drawing.Point(61, 56);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(75, 41);
+            this.SaveBtn.TabIndex = 4;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = true;
             // 
             // splitter1
             // 
@@ -1396,16 +1591,6 @@
             this.splitContainer6.SplitterDistance = 142;
             this.splitContainer6.TabIndex = 0;
             // 
-            // AddBtn
-            // 
-            this.AddBtn.Location = new System.Drawing.Point(3, 3);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(39, 26);
-            this.AddBtn.TabIndex = 4;
-            this.AddBtn.Text = "+";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
             // gStudentAssGV
             // 
             this.gStudentAssGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1418,6 +1603,16 @@
             this.gStudentAssGV.Name = "gStudentAssGV";
             this.gStudentAssGV.Size = new System.Drawing.Size(286, 142);
             this.gStudentAssGV.TabIndex = 0;
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Location = new System.Drawing.Point(3, 3);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(39, 26);
+            this.AddBtn.TabIndex = 4;
+            this.AddBtn.Text = "+";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // NewAssessmentGB
             // 
@@ -1491,200 +1686,6 @@
             this.AssesDatePicker.Size = new System.Drawing.Size(92, 20);
             this.AssesDatePicker.TabIndex = 36;
             // 
-            // splitContainer7
-            // 
-            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer7.Name = "splitContainer7";
-            this.splitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer7.Panel1
-            // 
-            this.splitContainer7.Panel1.Controls.Add(this.classapprovallistGV);
-            // 
-            // splitContainer7.Panel2
-            // 
-            this.splitContainer7.Panel2.Controls.Add(this.splitContainer8);
-            this.splitContainer7.Size = new System.Drawing.Size(765, 342);
-            this.splitContainer7.SplitterDistance = 198;
-            this.splitContainer7.TabIndex = 0;
-            // 
-            // classapprovallistGV
-            // 
-            this.classapprovallistGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.classapprovallistGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.classapprovallistGV.BackgroundColor = System.Drawing.Color.White;
-            this.classapprovallistGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classapprovallistGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classapprovallistGV.Location = new System.Drawing.Point(0, 0);
-            this.classapprovallistGV.Name = "classapprovallistGV";
-            this.classapprovallistGV.Size = new System.Drawing.Size(765, 198);
-            this.classapprovallistGV.TabIndex = 1;
-            // 
-            // splitContainer8
-            // 
-            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer8.Name = "splitContainer8";
-            // 
-            // splitContainer8.Panel1
-            // 
-            this.splitContainer8.Panel1.Controls.Add(this.updateGB);
-            // 
-            // splitContainer8.Panel2
-            // 
-            this.splitContainer8.Panel2.Controls.Add(this.UpdateBtn);
-            this.splitContainer8.Panel2.Controls.Add(this.SaveBtn);
-            this.splitContainer8.Size = new System.Drawing.Size(765, 140);
-            this.splitContainer8.SplitterDistance = 587;
-            this.splitContainer8.TabIndex = 1;
-            // 
-            // UpdateBtn
-            // 
-            this.UpdateBtn.Location = new System.Drawing.Point(61, 12);
-            this.UpdateBtn.Name = "UpdateBtn";
-            this.UpdateBtn.Size = new System.Drawing.Size(75, 38);
-            this.UpdateBtn.TabIndex = 2;
-            this.UpdateBtn.Text = "Update";
-            this.UpdateBtn.UseVisualStyleBackColor = true;
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.Location = new System.Drawing.Point(61, 56);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(75, 41);
-            this.SaveBtn.TabIndex = 4;
-            this.SaveBtn.Text = "Save";
-            this.SaveBtn.UseVisualStyleBackColor = true;
-            // 
-            // updateGB
-            // 
-            this.updateGB.Controls.Add(this.OfficialGB);
-            this.updateGB.Controls.Add(this.msglbl);
-            this.updateGB.Controls.Add(this.statusCB);
-            this.updateGB.Controls.Add(this.gradetb);
-            this.updateGB.Controls.Add(this.firstnameTB);
-            this.updateGB.Controls.Add(this.statuslbl);
-            this.updateGB.Controls.Add(this.Gradelbl);
-            this.updateGB.Controls.Add(this.label7);
-            this.updateGB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.updateGB.Location = new System.Drawing.Point(0, 0);
-            this.updateGB.Name = "updateGB";
-            this.updateGB.Size = new System.Drawing.Size(587, 140);
-            this.updateGB.TabIndex = 0;
-            this.updateGB.TabStop = false;
-            this.updateGB.Text = "Student Class Approval";
-            // 
-            // msglbl
-            // 
-            this.msglbl.AutoSize = true;
-            this.msglbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.msglbl.Location = new System.Drawing.Point(226, 64);
-            this.msglbl.Name = "msglbl";
-            this.msglbl.Size = new System.Drawing.Size(101, 13);
-            this.msglbl.TabIndex = 15;
-            this.msglbl.Text = "( Percentage % )";
-            // 
-            // statusCB
-            // 
-            this.statusCB.FormattingEnabled = true;
-            this.statusCB.Items.AddRange(new object[] {
-            "Approved",
-            "Deferred"});
-            this.statusCB.Location = new System.Drawing.Point(89, 92);
-            this.statusCB.Name = "statusCB";
-            this.statusCB.Size = new System.Drawing.Size(131, 21);
-            this.statusCB.TabIndex = 14;
-            // 
-            // gradetb
-            // 
-            this.gradetb.Location = new System.Drawing.Point(89, 61);
-            this.gradetb.Name = "gradetb";
-            this.gradetb.Size = new System.Drawing.Size(131, 20);
-            this.gradetb.TabIndex = 13;
-            // 
-            // firstnameTB
-            // 
-            this.firstnameTB.Location = new System.Drawing.Point(89, 34);
-            this.firstnameTB.Name = "firstnameTB";
-            this.firstnameTB.ReadOnly = true;
-            this.firstnameTB.Size = new System.Drawing.Size(231, 20);
-            this.firstnameTB.TabIndex = 12;
-            // 
-            // statuslbl
-            // 
-            this.statuslbl.AutoSize = true;
-            this.statuslbl.Location = new System.Drawing.Point(46, 99);
-            this.statuslbl.Name = "statuslbl";
-            this.statuslbl.Size = new System.Drawing.Size(37, 13);
-            this.statuslbl.TabIndex = 11;
-            this.statuslbl.Text = "Status";
-            // 
-            // Gradelbl
-            // 
-            this.Gradelbl.AutoSize = true;
-            this.Gradelbl.Location = new System.Drawing.Point(47, 68);
-            this.Gradelbl.Name = "Gradelbl";
-            this.Gradelbl.Size = new System.Drawing.Size(36, 13);
-            this.Gradelbl.TabIndex = 10;
-            this.Gradelbl.Text = "Grade";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 37);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Student Name";
-            // 
-            // TApprovalTB
-            // 
-            this.TApprovalTB.Location = new System.Drawing.Point(107, 19);
-            this.TApprovalTB.Name = "TApprovalTB";
-            this.TApprovalTB.ReadOnly = true;
-            this.TApprovalTB.Size = new System.Drawing.Size(121, 20);
-            this.TApprovalTB.TabIndex = 17;
-            // 
-            // ApprovedBylbl
-            // 
-            this.ApprovedBylbl.AutoSize = true;
-            this.ApprovedBylbl.Location = new System.Drawing.Point(9, 22);
-            this.ApprovedBylbl.Name = "ApprovedBylbl";
-            this.ApprovedBylbl.Size = new System.Drawing.Size(92, 13);
-            this.ApprovedBylbl.TabIndex = 16;
-            this.ApprovedBylbl.Text = "Teacher Approval";
-            // 
-            // Signofflbl
-            // 
-            this.Signofflbl.AutoSize = true;
-            this.Signofflbl.Location = new System.Drawing.Point(41, 49);
-            this.Signofflbl.Name = "Signofflbl";
-            this.Signofflbl.Size = new System.Drawing.Size(60, 13);
-            this.Signofflbl.TabIndex = 18;
-            this.Signofflbl.Text = "Sign Off By";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(107, 48);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 19;
-            // 
-            // OfficialGB
-            // 
-            this.OfficialGB.Controls.Add(this.TApprovalTB);
-            this.OfficialGB.Controls.Add(this.ApprovedBylbl);
-            this.OfficialGB.Controls.Add(this.textBox2);
-            this.OfficialGB.Controls.Add(this.Signofflbl);
-            this.OfficialGB.Location = new System.Drawing.Point(333, 24);
-            this.OfficialGB.Name = "OfficialGB";
-            this.OfficialGB.Size = new System.Drawing.Size(235, 100);
-            this.OfficialGB.TabIndex = 20;
-            this.OfficialGB.TabStop = false;
-            this.OfficialGB.Text = "Official Approval";
-            // 
             // frmTeacherAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1703,6 +1704,19 @@
             this.splitContainer3.ResumeLayout(false);
             this.clSortingGB.ResumeLayout(false);
             this.clSortingGB.PerformLayout();
+            this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
+            this.splitContainer7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).EndInit();
+            this.splitContainer8.Panel1.ResumeLayout(false);
+            this.splitContainer8.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
+            this.splitContainer8.ResumeLayout(false);
+            this.updateGB.ResumeLayout(false);
+            this.updateGB.PerformLayout();
+            this.OfficialGB.ResumeLayout(false);
+            this.OfficialGB.PerformLayout();
             this.TeacherTabs.ResumeLayout(false);
             this.TAccountTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1747,19 +1761,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gStudentAssGV)).EndInit();
             this.NewAssessmentGB.ResumeLayout(false);
             this.NewAssessmentGB.PerformLayout();
-            this.splitContainer7.Panel1.ResumeLayout(false);
-            this.splitContainer7.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
-            this.splitContainer7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.classapprovallistGV)).EndInit();
-            this.splitContainer8.Panel1.ResumeLayout(false);
-            this.splitContainer8.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
-            this.splitContainer8.ResumeLayout(false);
-            this.updateGB.ResumeLayout(false);
-            this.updateGB.PerformLayout();
-            this.OfficialGB.ResumeLayout(false);
-            this.OfficialGB.PerformLayout();
             this.ResumeLayout(false);
 
         }

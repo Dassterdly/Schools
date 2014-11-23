@@ -16,7 +16,7 @@ namespace Final
         int uID, sID, cID, aID, scID;
 
         Assessment newExam;
-         
+
 
         public frmTeacherAccount()
         {
@@ -31,8 +31,6 @@ namespace Final
             results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue));
             LoadStudentList();
             hideAdd();
-          
-
         }
 
         private void fillcombobox()
@@ -93,7 +91,7 @@ namespace Final
             clSubjectCB.DisplayMember = "SubjectName";
             clSubjectCB.ValueMember = "SubjectCode";
             clSubjectCB.SelectedIndex = -1;
-            
+
             gAcademicYrCB.DataSource = year.ToList();
             gAcademicYrCB.DisplayMember = "AcademicYear";
             gAcademicYrCB.SelectedIndex = -1;
@@ -108,13 +106,11 @@ namespace Final
             gSubjectCB.DisplayMember = "SubjectName";
             gSubjectCB.ValueMember = "SubjectCode";
             gSubjectCB.SelectedIndex = -1;
-
-                                                 
         }
 
         private void LoadTeacherProfile()
         {
-           var qprofile = from t in db.Teachers
+            var qprofile = from t in db.Teachers
                            where t.UserID == uID
                            select t;
 
@@ -136,12 +132,12 @@ namespace Final
                 string id = i.TeacherID.ToString();
                 string name = i.FirstName + " " + i.LastName;
                 string skl = i.School.ToString();
-                
+
                 //loading data in classes taught tab
                 ctTeacherIDTB.Text = id;
                 ctTeacherNameTB.Text = name;
                 ctSchoolTB.Text = skl;
-                
+
                 //load data into student per class tab
                 spTeacherIDtb.Text = id;
                 spTeacherName.Text = name;
@@ -156,64 +152,37 @@ namespace Final
                 gTeacheridTB.Text = id;
                 gTeacherNameTB.Text = name;
                 gSchoolTB.Text = skl;
-
-                
-
             }
-
-
         }
 
-
-        private void results(string yr, int trm, int sub, int form)
+        private void Empty()
         {
 
-
-
-        }
-
-        private void Empty ()
-        {
-
-        MessageBox.Show("No Records Found");
+            MessageBox.Show("No Records Found");
 
         }
+
         private void results(string yr, int trm, int sub)
         {
             var cbyID = from t in db.Teachers
                         join c in db.Classes on t.TeacherID equals c.TeacherID
                         where t.UserID == uID
-                                  orderby c.AcademicYear descending, c.FormID descending
-                                  select new
-                                  {
-                                      ID = c.ClassID,
-                                      Subject = c.Subject,
-                                      Form = c.SchoolForm,
-                                      AcademicTerm = c.Term,
-                                      AcademicYear = c.AcademicYear
-                                  };
+                        orderby c.AcademicYear descending, c.FormID descending
+                        select new
+                        {
+                            ID = c.ClassID,
+                            Subject = c.Subject,
+                            Form = c.SchoolForm,
+                            AcademicTerm = c.Term,
+                            AcademicYear = c.AcademicYear
+                        };
 
             var cbyIDYR = from t in db.Teachers
-                                  join c in db.Classes on t.TeacherID equals c.TeacherID
-                                  join f in db.SchoolForms on c.FormID equals f.FormID
-                                  join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                                  join tm in db.Terms on c.TermID equals tm.TermID
-                                  where t.UserID == uID && c.AcademicYear == yr
-                                  orderby c.AcademicYear descending, c.FormID descending
-                                  select new
-                                  {
-                                      ID = c.ClassID,
-                                      Subject = c.Subject,
-                                      Form = c.SchoolForm,
-                                      AcademicTerm = c.Term,
-                                      AcademicYear = c.AcademicYear
-                                  };
-            var cbytrm = from t in db.Teachers
                           join c in db.Classes on t.TeacherID equals c.TeacherID
                           join f in db.SchoolForms on c.FormID equals f.FormID
                           join su in db.Subjects on c.SubjectCode equals su.SubjectCode
                           join tm in db.Terms on c.TermID equals tm.TermID
-                          where t.UserID == uID && c.TermID== trm
+                          where t.UserID == uID && c.AcademicYear == yr
                           orderby c.AcademicYear descending, c.FormID descending
                           select new
                           {
@@ -223,23 +192,38 @@ namespace Final
                               AcademicTerm = c.Term,
                               AcademicYear = c.AcademicYear
                           };
-            
+            var cbytrm = from t in db.Teachers
+                         join c in db.Classes on t.TeacherID equals c.TeacherID
+                         join f in db.SchoolForms on c.FormID equals f.FormID
+                         join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                         join tm in db.Terms on c.TermID equals tm.TermID
+                         where t.UserID == uID && c.TermID == trm
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             AcademicTerm = c.Term,
+                             AcademicYear = c.AcademicYear
+                         };
+
 
             var cbyIDYRTM = from t in db.Teachers
-                                  join c in db.Classes on t.TeacherID equals c.TeacherID
-                                  join f in db.SchoolForms on c.FormID equals f.FormID
-                                  join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                                  join tm in db.Terms on c.TermID equals tm.TermID
-                                  where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
-                                  orderby c.AcademicYear descending, c.FormID descending
-                                  select new
-                                  {
-                                      ID = c.ClassID,
-                                      Subject = c.Subject,
-                                      Form = c.SchoolForm,
-                                      AcademicTerm = c.Term,
-                                      AcademicYear = c.AcademicYear
-                                  };
+                            join c in db.Classes on t.TeacherID equals c.TeacherID
+                            join f in db.SchoolForms on c.FormID equals f.FormID
+                            join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                            join tm in db.Terms on c.TermID equals tm.TermID
+                            where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
+                            orderby c.AcademicYear descending, c.FormID descending
+                            select new
+                            {
+                                ID = c.ClassID,
+                                Subject = c.Subject,
+                                Form = c.SchoolForm,
+                                AcademicTerm = c.Term,
+                                AcademicYear = c.AcademicYear
+                            };
             var cbysub = from t in db.Teachers
                          join c in db.Classes on t.TeacherID equals c.TeacherID
                          join f in db.SchoolForms on c.FormID equals f.FormID
@@ -255,46 +239,28 @@ namespace Final
                              AcademicTerm = c.Term,
                              AcademicYear = c.AcademicYear
                          };
-            
-            var cbyAll = from t in db.Teachers
-                                  join c in db.Classes on t.TeacherID equals c.TeacherID
-                                  join f in db.SchoolForms on c.FormID equals f.FormID
-                                  join su in db.Subjects on c.SubjectCode equals su.SubjectCode
-                                  join tm in db.Terms on c.TermID equals tm.TermID
-                                  where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub
-                                  orderby c.AcademicYear descending, c.FormID descending
-                                  select new
-                                  {
-                                      ID = c.ClassID,
-                                      Subject = c.Subject,
-                                      Form = c.SchoolForm,
-                                      AcademicTerm = c.Term,
-                                      AcademicYear = c.AcademicYear
-                                  };
-           
-            var SbyID = from s in db.Students
-                          join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                          join c in db.Classes on sc.ClassID equals c.ClassID
-                          join t in db.Teachers on c.TeacherID equals t.TeacherID
-                          where t.UserID == uID
-                          orderby c.AcademicYear descending, c.FormID descending
-                          select new
-                          {
-                              ID = sc.StudentClassesID,
-                              CID = sc.ClassID,
-                              SID = sc.StudentID,
-                              Student = s.FirstName + " " + s.LastName,
-                              Subject = c.Subject,
-                              Form = c.SchoolForm,
-                              AcademicYear = c.AcademicYear,
-                              AcademicTerm = c.Term
-                          };
 
-            var SbyIDYR = from s in db.Students
+            var cbyAll = from t in db.Teachers
+                         join c in db.Classes on t.TeacherID equals c.TeacherID
+                         join f in db.SchoolForms on c.FormID equals f.FormID
+                         join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                         join tm in db.Terms on c.TermID equals tm.TermID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             AcademicTerm = c.Term,
+                             AcademicYear = c.AcademicYear
+                         };
+
+            var SbyID = from s in db.Students
                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
                         join c in db.Classes on sc.ClassID equals c.ClassID
                         join t in db.Teachers on c.TeacherID equals t.TeacherID
-                        where t.UserID == uID && c.AcademicYear == yr
+                        where t.UserID == uID
                         orderby c.AcademicYear descending, c.FormID descending
                         select new
                         {
@@ -308,11 +274,11 @@ namespace Final
                             AcademicTerm = c.Term
                         };
 
-            var SbyIDYRTM = from s in db.Students
+            var SbyIDYR = from s in db.Students
                           join sc in db.StudentClasses on s.StudentID equals sc.StudentID
                           join c in db.Classes on sc.ClassID equals c.ClassID
                           join t in db.Teachers on c.TeacherID equals t.TeacherID
-                           where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
+                          where t.UserID == uID && c.AcademicYear == yr
                           orderby c.AcademicYear descending, c.FormID descending
                           select new
                           {
@@ -326,27 +292,49 @@ namespace Final
                               AcademicTerm = c.Term
                           };
 
+            var SbyIDYRTM = from s in db.Students
+                            join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                            join c in db.Classes on sc.ClassID equals c.ClassID
+                            join t in db.Teachers on c.TeacherID equals t.TeacherID
+                            join a in db.Assessments on sc.StudentClassesID equals a.StudentClassesID
+                            where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
+                            orderby c.AcademicYear descending, c.FormID descending
+                            select new
+                            {
+                                ID = sc.StudentClassesID,
+                                CID = sc.ClassID,
+                                SID = sc.StudentID,
+                                Student = s.FirstName + " " + s.LastName,
+                                Subject = c.Subject,
+                                Form = c.SchoolForm,
+                                AcademicYear = c.AcademicYear,
+                                AcademicTerm = c.Term,
+                                AssessmentID = a.AssessmentID,
+                                AssessmentDate = a.Date,
+                                AssessmentGrade = a.Score
+                            };
+
             var SbyAll = from s in db.Students
-                           join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                           join c in db.Classes on sc.ClassID equals c.ClassID
-                           join t in db.Teachers on c.TeacherID equals t.TeacherID
-                           where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub
-                           orderby c.AcademicYear descending, c.FormID descending
-                           select new
-                           {
-                               ID = sc.StudentClassesID,
-                               CID = sc.ClassID,
-                               SID = sc.StudentID,
-                               Student = s.FirstName + " " + s.LastName,
-                               Subject = c.Subject,
-                               Form = c.SchoolForm,
-                               AcademicYear = c.AcademicYear,
-                               AcademicTerm = c.Term
-                           };
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             AcademicYear = c.AcademicYear,
+                             AcademicTerm = c.Term
+                         };
 
             if (TeacherTabs.SelectedTab == TeacherTabs.TabPages["TAccountTab"] || TeacherTabs.SelectedTab == TeacherTabs.TabPages["ClassTaughtTab"])
             {
-                
+
                 if (yr == "" & trm <= 0 & sub <= 0)
                 {
                     if (cbyID.Count() != 0)
@@ -357,7 +345,7 @@ namespace Final
                     {
                         Empty();
                     }
-                                 
+
                 }
 
 
@@ -428,7 +416,7 @@ namespace Final
             {
                 if (yr == "" & trm <= 0 & sub <= 0)
                 {
-                   studentclasslistGV.DataSource = SbyID.ToList();
+                    studentclasslistGV.DataSource = SbyID.ToList();
                 }
 
                 if (yr != "" & trm <= 0 & sub <= 0)
@@ -475,8 +463,8 @@ namespace Final
             {
                 if (yr == "" & trm <= 0 & sub <= 0)
                 {
-                   gStudentsGV.DataSource = SbyID.ToList();
-                   hidecols();
+                    gStudentsGV.DataSource = SbyID.ToList();
+                    hidecols();
                 }
 
                 if (yr != "" & trm <= 0 & sub <= 0)
@@ -498,8 +486,8 @@ namespace Final
                 }
             }
         }
-   
-        
+
+
 
         private void ctGetDatabtn_Click(object sender, EventArgs e)
         {
@@ -514,49 +502,53 @@ namespace Final
         {
             fillcombobox();
             this.teachercoursesGV.DataSource = null;
-            
+
             if (TeacherTabs.SelectedTab == TeacherTabs.TabPages["ClassTaughtTab"])
-                {
-                    results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue));
-                }
-            
+            {
+                results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue));
+            }
+
             if (TeacherTabs.SelectedTab == TeacherTabs.TabPages["StudentsPerClassTab"])
-                {
-                    results(scAcademicYrCB.Text, Convert.ToInt32(scTermCB.SelectedValue), Convert.ToInt32(scSubjectCB.SelectedValue));
-                }
+            {
+                results(scAcademicYrCB.Text, Convert.ToInt32(scTermCB.SelectedValue), Convert.ToInt32(scSubjectCB.SelectedValue));
+            }
 
             if (TeacherTabs.SelectedTab == TeacherTabs.TabPages["ClassApprovalTab"])
-                {
-                    results(clAcademicYrCB.Text, Convert.ToInt32(clTermCB.SelectedValue), Convert.ToInt32(clSubjectCB.SelectedValue));
-                }
+            {
+                results(clAcademicYrCB.Text, Convert.ToInt32(clTermCB.SelectedValue), Convert.ToInt32(clSubjectCB.SelectedValue));
+            }
 
             if (TeacherTabs.SelectedTab == TeacherTabs.TabPages["StudentGradesTab"])
-                {
-                    results(gAcademicYrCB.Text, Convert.ToInt32(gTermCB.SelectedValue), Convert.ToInt32(gSubjectCB.SelectedValue));
-                }
+            {
+                results(gAcademicYrCB.Text, Convert.ToInt32(gTermCB.SelectedValue), Convert.ToInt32(gSubjectCB.SelectedValue));
+            }
         }
         private void LoadStudentList()
         {
-           var ctquery = from s in db.Students
+            var ctquery = from s in db.Students
                           join sc in db.StudentClasses on s.StudentID equals sc.StudentID
                           join c in db.Classes on sc.ClassID equals c.ClassID
                           join f in db.SchoolForms on c.FormID equals f.FormID
                           join su in db.Subjects on c.SubjectCode equals su.SubjectCode
                           join tm in db.Terms on c.TermID equals tm.TermID
                           join t in db.Teachers on c.TeacherID equals t.TeacherID
+                          join a in db.Assessments on sc.StudentClassesID equals a.StudentClassesID
                           where t.UserID == uID
-                          orderby c.AcademicYear descending , c.FormID descending
+                          orderby c.AcademicYear descending, c.FormID descending
                           select new
                           {
                               ID = sc.StudentClassesID,
                               CID = sc.ClassID,
                               SID = sc.StudentID,
-                              Student = s.FirstName +" "+ s.LastName,
+                              Student = s.FirstName + " " + s.LastName,
                               Subject = c.Subject,
                               Form = f.FormName,
                               AcademicYear = c.AcademicYear,
-                              AcademicTerm = c.Term
-                           };
+                              AcademicTerm = c.Term,
+                              AssessmentID = a.AssessmentID,
+                              AssessmentDate = a.Date,
+                              AssessmentGrade = a.Score
+                          };
             studentclasslistGV.DataSource = ctquery.ToList();
 
             gStudentsGV.DataSource = ctquery.ToList();
@@ -570,7 +562,7 @@ namespace Final
         {
             gStudentsGV.Columns["AcademicYear"].Visible = false;
             gStudentsGV.Columns["AcademicTerm"].Visible = false;
-            
+
         }
         private void classlist()
         {
@@ -592,13 +584,13 @@ namespace Final
                             Subject = c.Subject,
                             Form = c.SchoolForm.FormName,
                             //AcademicYear = c.AcademicYear,
-                           // AcademicTerm = c.Term
+                            // AcademicTerm = c.Term
                             Status = "Pending"
                         };
             classapprovallistGV.DataSource = clist.ToList();
 
             //DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
-            
+
             //cmb.Name = "cmb";
             //cmb.MaxDropDownItems = 2;
             //cmb.Items.Add("Approved");
@@ -621,7 +613,7 @@ namespace Final
             //Deletelink.LinkBehavior = LinkBehavior.SystemDefault;
             //Deletelink.Text = "Delete";
             //classapprovallistGV.Columns.Add(Deletelink);
-           
+
         }
 
         private void sresults(string yr, int trm, int sub)
@@ -640,52 +632,52 @@ namespace Final
                             Student = s.FirstName + " " + s.LastName,
                             Subject = c.Subject,
                             Form = c.SchoolForm.FormName,
-                         };
+                        };
             var clist2 = from s in db.Students
-                        join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                        join c in db.Classes on sc.ClassID equals c.ClassID
-                        join t in db.Teachers on c.TeacherID equals t.TeacherID
-                        where t.UserID == uID && c.AcademicYear == yr
-                        orderby c.AcademicYear descending, c.FormID descending
-                        select new
-                        {
-                            ID = sc.StudentClassesID,
-                            CID = sc.ClassID,
-                            SID = sc.StudentID,
-                            Student = s.FirstName + " " + s.LastName,
-                            Subject = c.Subject,
-                            Form = c.SchoolForm.FormName,
-                        };
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm.FormName,
+                         };
             var clist3 = from s in db.Students
-                        join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                        join c in db.Classes on sc.ClassID equals c.ClassID
-                        join t in db.Teachers on c.TeacherID equals t.TeacherID
-                        where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
-                        orderby c.AcademicYear descending, c.FormID descending
-                        select new
-                        {
-                            ID = sc.StudentClassesID,
-                            CID = sc.ClassID,
-                            SID = sc.StudentID,
-                            Student = s.FirstName + " " + s.LastName,
-                            Subject = c.Subject,
-                            Form = c.SchoolForm.FormName,
-                        };
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm.FormName,
+                         };
             var clist4 = from s in db.Students
-                        join sc in db.StudentClasses on s.StudentID equals sc.StudentID
-                        join c in db.Classes on sc.ClassID equals c.ClassID
-                        join t in db.Teachers on c.TeacherID equals t.TeacherID
-                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SchoolCode==sub
-                        orderby c.AcademicYear descending, c.FormID descending
-                        select new
-                        {
-                            ID = sc.StudentClassesID,
-                            CID = sc.ClassID,
-                            SID = sc.StudentID,
-                            Student = s.FirstName + " " + s.LastName,
-                            Subject = c.Subject,
-                            Form = c.SchoolForm.FormName,
-                        };
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SchoolCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm.FormName,
+                         };
 
             if (yr == "" & trm <= 0 & sub <= 0)
             {
@@ -715,7 +707,7 @@ namespace Final
 
         private void loadAssessment(int s, int c)
         {
-            gStudentAssGV.DataSource = null; 
+            gStudentAssGV.DataSource = null;
 
             var Aquery = from S in db.Students
                          join sC in db.StudentClasses on S.StudentID equals sC.StudentID
@@ -725,16 +717,16 @@ namespace Final
                          orderby aS.Date descending
                          select new
                          {
-                            ExamDate = aS.Date,
-                            Score = aS.Score
+                             ExamDate = aS.Date,
+                             Score = aS.Score
                          };
-            
-                
+
+
             if (Aquery.Count() == 0)
             {
                 gStudentAssGV.DataSource = Aquery.ToList();
                 MessageBox.Show("No Recorded Assessment(s)");
-                
+
             }
             else
             {
@@ -777,10 +769,10 @@ namespace Final
         private void AddBtn_Click(object sender, EventArgs e)
         {
             NewAssessmentGB.Visible = true;
-            aID = db.Assessments.Max(x=> x.AssessmentID)+1;
+            aID = db.Assessments.Max(x => x.AssessmentID) + 1;
         }
 
-        private void saveAssess ()
+        private void saveAssess()
         {
             try
             {
@@ -794,7 +786,7 @@ namespace Final
                 };
 
                 db.Assessments.Add(newExam);
-               db.SaveChanges();
+                db.SaveChanges();
                 MessageBox.Show("Assessment Successfully Added");
                 //loadAssessment(sID, cID);
             }
@@ -847,8 +839,9 @@ namespace Final
             hideAdd();
         }
 
+        private void studentclasslistGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
-        
-     }
+        }
+    }
 }

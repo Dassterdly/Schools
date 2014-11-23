@@ -17,8 +17,7 @@ namespace Final
         SchoolsEntities db = new SchoolsEntities();
         public frmLogin()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
@@ -38,8 +37,7 @@ namespace Final
             usernameTB.Clear();
             passwordTB.Clear();
             usernameTB.Focus();
-            accesstypeCB.SelectedIndex = -1;
-            
+            accesstypeCB.SelectedIndex = -1;      
 
         }
 
