@@ -49,8 +49,6 @@ namespace Final
                             Form = s.SchoolForm,
                             Term = c.Term,
                             Year = c.AcademicYear
-
-
                         }).Distinct();
             SKLclasslistGV.DataSource = query.ToList();
 

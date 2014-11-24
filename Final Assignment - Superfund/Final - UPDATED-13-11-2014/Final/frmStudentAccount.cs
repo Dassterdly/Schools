@@ -100,7 +100,7 @@ namespace Final
                          join sp in db.StudentsParents on s.StudentID equals sp.StudentID
                          join p in db.Parents on sp.ParentID equals p.ParentID
                          where s.UserID == uID
-                         select new { FirstName = p.PFirstName, LastName = p.PLastName, Relationship = sp.Relationship };
+                         select new { FirstName = p.FirstName, LastName = p.LastName, Relationship = sp.Relationship };
 
             studentparentGridView.DataSource = pquery.ToList();
             

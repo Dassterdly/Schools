@@ -224,9 +224,7 @@
       <PropertyRef Name="ParentID" />
     </Key>
     <Property Name="ParentID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="PFirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="MiddleInitial" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
-    <Property Name="PLastName" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
     <Property Name="HomePhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="CellPhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="WorkPhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -236,6 +234,8 @@
     <NavigationProperty Name="User" Relationship="SchoolsModel.FK_Parents_Users" FromRole="Parents" ToRole="Users" />
     <NavigationProperty Name="StudentsParents" Relationship="SchoolsModel.FK_StudentsParents_Parents" FromRole="Parents" ToRole="StudentsParents" />
     <Property Type="String" Name="Prefix" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Parish">
     <Key>
@@ -283,11 +283,13 @@
     <Property Name="StudentClassesID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="StudentID" Type="Int32" Nullable="false" />
     <Property Name="ClassID" Type="Int32" Nullable="false" />
-    <Property Name="Grade" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="Grade" Type="Decimal" Precision="5" Scale="2" />
     <NavigationProperty Name="Assessments" Relationship="SchoolsModel.FK_Assessments_StudentClasses" FromRole="StudentClasses" ToRole="Assessments" />
     <NavigationProperty Name="Class" Relationship="SchoolsModel.FK_StudentClasses_Classes" FromRole="StudentClasses" ToRole="Classes" />
     <NavigationProperty Name="Student" Relationship="SchoolsModel.FK_StudentClasses_Students" FromRole="StudentClasses" ToRole="Students" />
-    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Status" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="SignOffBy" Type="Int32" />
   </EntityType>
   <EntityType Name="Student">
     <Key>
@@ -371,8 +373,8 @@
       <PropertyRef Name="UserID" />
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="false" />
     <Property Name="Username" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
     <Property Name="AccessType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -725,10 +727,6 @@
     </Key>
     <Property Type="Int32" Name="PrincipalID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="Prefix" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PFirstname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PMiddleInitial" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Homephone" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Cellphone" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="VillageID" Nullable="false" />
     <Property Type="Int32" Name="ParishID" Nullable="false" />
@@ -739,6 +737,12 @@
     <NavigationProperty Name="School" Relationship="SchoolsModel.FK_Principals_Schools" FromRole="Principal" ToRole="School" />
     <NavigationProperty Name="User" Relationship="SchoolsModel.FK_Principals_Users" FromRole="Principal" ToRole="User" />
     <NavigationProperty Name="Village" Relationship="SchoolsModel.FK_Principals_Villages" FromRole="Principal" ToRole="Village" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HomePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tenure" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_Principals_Parishes">
     <End Type="SchoolsModel.Parish" Role="Parish" Multiplicity="1" />

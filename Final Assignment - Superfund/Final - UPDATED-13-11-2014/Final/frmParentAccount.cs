@@ -53,7 +53,7 @@ namespace Final
                            join sp in db.StudentsParents on p.ParentID equals sp.ParentID
                            join s in db.Students on sp.StudentID equals s.StudentID
                            where p.UserID == uID && p.ParentID==sp.ParentID
-                           select new {p.ParentID, p.PFirstName, p.PLastName, 
+                           select new {p.ParentID, p.FirstName, p.LastName, 
                                         s.Village,s.VillageID, s.Parish, s.ParishID, p.HomePhone, p.Email,
                                         p.CellPhone, p.WorkPhone};
 
@@ -61,8 +61,8 @@ namespace Final
             {
                 //loading data into parent account tab
                 ParentIDTB.Text = i.ParentID.ToString();
-                PFirsnameTB.Text = i.PFirstName;
-                PLastnameTB.Text = i.PLastName;
+                PFirsnameTB.Text = i.FirstName;
+                PLastnameTB.Text = i.LastName;
                 PVillageTB.Text = i.Village.ToString();
                 PParishTB.Text = i.Parish.ToString();
                 PHomeTB.Text = i.HomePhone.ToString();

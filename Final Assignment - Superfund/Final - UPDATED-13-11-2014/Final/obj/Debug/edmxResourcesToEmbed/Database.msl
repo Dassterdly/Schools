@@ -65,11 +65,11 @@
     <EntitySetMapping Name="Parents">
       <EntityTypeMapping TypeName="SchoolsModel.Parent">
         <MappingFragment StoreEntitySet="Parents">
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="Prefix" ColumnName="Prefix" />
           <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-          <ScalarProperty Name="PFirstName" ColumnName="PFirstName" />
           <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
-          <ScalarProperty Name="PLastName" ColumnName="PLastName" />
           <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
           <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
           <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
@@ -110,6 +110,8 @@
     <EntitySetMapping Name="StudentClasses">
       <EntityTypeMapping TypeName="SchoolsModel.StudentClass">
         <MappingFragment StoreEntitySet="StudentClasses">
+          <ScalarProperty Name="SignOffBy" ColumnName="SignOffBy" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="StudentClassesID" ColumnName="StudentClassesID" />
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
@@ -208,16 +210,18 @@
     <EntitySetMapping Name="Principals">
       <EntityTypeMapping TypeName="SchoolsModel.Principal">
         <MappingFragment StoreEntitySet="Principals">
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="DOB" ColumnName="DOB" />
           <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
           <ScalarProperty Name="ParishID" ColumnName="ParishID" />
           <ScalarProperty Name="VillageID" ColumnName="VillageID" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
-          <ScalarProperty Name="Homephone" ColumnName="Homephone" />
-          <ScalarProperty Name="PMiddleInitial" ColumnName="PMiddleInitial" />
-          <ScalarProperty Name="PFirstname" ColumnName="PFirstname" />
           <ScalarProperty Name="Prefix" ColumnName="Prefix" />
           <ScalarProperty Name="PrincipalID" ColumnName="PrincipalID" />
         </MappingFragment>

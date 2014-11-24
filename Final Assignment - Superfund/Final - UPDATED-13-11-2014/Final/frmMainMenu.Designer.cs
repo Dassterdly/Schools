@@ -58,12 +58,12 @@
             this.howToLoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yourAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.uIDlbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.uTypelbl = new System.Windows.Forms.Label();
             this.uNamelbl = new System.Windows.Forms.Label();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuContextStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -100,21 +100,21 @@
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.accountToolStripMenuItem.Text = "Account";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
             // scheduleToolStripMenuItem
             // 
             this.scheduleToolStripMenuItem.Name = "scheduleToolStripMenuItem";
-            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scheduleToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.scheduleToolStripMenuItem.Text = "Schedule";
             this.scheduleToolStripMenuItem.Click += new System.EventHandler(this.scheduleToolStripMenuItem_Click);
             // 
             // gradeBookToolStripMenuItem
             // 
             this.gradeBookToolStripMenuItem.Name = "gradeBookToolStripMenuItem";
-            this.gradeBookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gradeBookToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.gradeBookToolStripMenuItem.Text = "Grade Book";
             this.gradeBookToolStripMenuItem.Click += new System.EventHandler(this.gradeBookToolStripMenuItem_Click);
             // 
@@ -164,6 +164,7 @@
             this.accountToolStripMenuItem2.Name = "accountToolStripMenuItem2";
             this.accountToolStripMenuItem2.Size = new System.Drawing.Size(179, 22);
             this.accountToolStripMenuItem2.Text = "Account";
+            this.accountToolStripMenuItem2.Click += new System.EventHandler(this.accountToolStripMenuItem2_Click);
             // 
             // registerClassesToolStripMenuItem
             // 
@@ -298,6 +299,13 @@
             this.userManualToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.userManualToolStripMenuItem.Text = "User Manual";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -350,13 +358,6 @@
             this.uNamelbl.Size = new System.Drawing.Size(64, 13);
             this.uNamelbl.TabIndex = 3;
             this.uNamelbl.Text = "Username , ";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // frmMainMenu
             // 

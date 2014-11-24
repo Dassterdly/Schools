@@ -1,0 +1,897 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Final
+{
+    public partial class frmPrincipalAccount : Form
+    {
+        SchoolsEntities db = new SchoolsEntities();
+        int uID, sID, cID, aID, scID;
+
+        Assessment newExam;
+
+
+        public frmPrincipalAccount()
+        {
+            InitializeComponent();
+        }
+
+        private void frmTeacherAccount_Load(object sender, EventArgs e)
+        {
+            uID = Convert.ToInt32(uIDlbl.Text);
+            LoadTeacherProfile();
+            fillcombobox();
+            results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+            LoadStudentList();
+            hideAdd();
+        }
+
+        private void fillcombobox()
+        {
+            var subjects = (from t in db.Principals
+                            join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                            join sub in db.Subjects on c.SubjectCode equals sub.SubjectCode
+                            where t.UserID == uID
+                            select sub).Distinct();
+            
+            var teacherquery = (from t in db.Teachers
+                        join sch in db.Schools on t.SchoolCode equals sch.SchoolCode
+                        select new
+                        {
+                            ID = t.TeacherID,
+                            Name = t.FirstName + " " + t.LastName}).Distinct();
+
+            var StudentQuery = (from t in db.Students
+                               select new
+                                {
+                                    ID = t.StudentID,
+                                    Name = t.FirstName + " " + t.LastName
+                                }).Distinct();
+            
+            var year = db.Classes.Select(x => x.AcademicYear).Distinct();
+            var terms = db.Terms.Distinct();
+            var form = db.SchoolForms.Distinct();
+
+            CTTeacherCB.DataSource = teacherquery.ToList();
+            CTTeacherCB.DisplayMember = "Name";
+            CTTeacherCB.SelectedIndex = -1;
+
+            CStudentNameCB.DataSource = StudentQuery.ToList();
+            CStudentNameCB.DisplayMember = "Name";
+            CStudentNameCB.SelectedIndex = -1;
+
+            CTAcademicperiodCB.DataSource = year.ToList();
+            CTAcademicperiodCB.DisplayMember = "AcademicYear";
+            CTAcademicperiodCB.SelectedIndex = -1;
+
+            CTTermCB.DataSource = terms.ToList();
+            CTTermCB.DisplayMember = "TermName";
+            CTTermCB.ValueMember = "TermID";
+            CTTermCB.SelectedIndex = -1;
+
+            ctSubjectCB.DataSource = subjects.ToList();
+            ctSubjectCB.DisplayMember = "SubjectName";
+            ctSubjectCB.ValueMember = "SubjectCode";
+            ctSubjectCB.SelectedIndex = -1;
+
+            scFormCB.DataSource = form.ToList();
+            scFormCB.DisplayMember = "FormName";
+            scFormCB.ValueMember = "FormID";
+            scFormCB.SelectedIndex = -1;
+
+            scAcademicYrCB.DataSource = year.ToList();
+            scAcademicYrCB.DisplayMember = "AcademicYear";
+            scAcademicYrCB.SelectedIndex = -1;
+
+            scTermCB.DataSource = terms.ToList();
+            scTermCB.DisplayMember = "TermName";
+            scTermCB.ValueMember = "TermID";
+            scTermCB.SelectedIndex = -1;
+
+            scSubjectCB.DataSource = subjects.ToList();
+            scSubjectCB.DisplayMember = "SubjectName";
+            scSubjectCB.ValueMember = "SubjectCode";
+            scSubjectCB.SelectedIndex = -1;
+
+            clAcademicYrCB.DataSource = year.ToList();
+            clAcademicYrCB.DisplayMember = "AcademicYear";
+            clAcademicYrCB.SelectedIndex = -1;
+
+            clTermCB.DataSource = terms.ToList();
+            clTermCB.DisplayMember = "TermName";
+            clTermCB.ValueMember = "TermID";
+            clTermCB.SelectedIndex = -1;
+
+
+            clSubjectCB.DataSource = subjects.ToList();
+            clSubjectCB.DisplayMember = "SubjectName";
+            clSubjectCB.ValueMember = "SubjectCode";
+            clSubjectCB.SelectedIndex = -1;
+
+            gAcademicYrCB.DataSource = year.ToList();
+            gAcademicYrCB.DisplayMember = "AcademicYear";
+            gAcademicYrCB.SelectedIndex = -1;
+
+            gTermCB.DataSource = terms.ToList();
+            gTermCB.DisplayMember = "TermName";
+            gTermCB.ValueMember = "TermID";
+            gTermCB.SelectedIndex = -1;
+
+
+            gSubjectCB.DataSource = subjects.ToList();
+            gSubjectCB.DisplayMember = "SubjectName";
+            gSubjectCB.ValueMember = "SubjectCode";
+            gSubjectCB.SelectedIndex = -1;
+        }
+
+        private void LoadTeacherProfile()
+        {
+            var qprofile = from t in db.Principals
+                           where t.UserID == uID
+                           select t;
+
+            foreach (var i in qprofile)
+            {
+                //loading data into student account tab
+                TeacherIDTB.Text = i.PrincipalID.ToString();
+                TFirsnameTB.Text = i.Firstname;
+                TMItb.Text = i.MiddleInitial;
+                TLastnameTB.Text = i.Lastname;
+                tDOBtb.Text = i.DOB.ToShortDateString();
+                TSchooltb.Text = i.School.ToString();
+                TVillageTB.Text = i.Village.ToString();
+                TParishTB.Text = i.Parish.ToString();
+                THomeTB.Text = i.HomePhone;
+                TCellTB.Text = i.CellPhone;
+                TEmailTB.Text = i.Email;
+
+                string id = i.PrincipalID.ToString();
+                string name = i.Firstname + " " + i.Lastname;
+                string skl = i.School.ToString();
+
+                //load data into class approval list tab
+                clTeacherIDTB.Text = id;
+                clTeacherNameTB.Text = name;
+                clSchoolTB.Text = skl;
+                ctSchoolTB.Text = skl;
+            }
+        }
+
+        private void Empty()
+        {
+            MessageBox.Show("No Records Found");
+        }
+
+        private void results(string yr, int trm, int sub, string teach)
+        {
+            var cbyID = from t in db.Principals
+                        join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                        where t.UserID == uID
+                        orderby c.AcademicYear descending, c.FormID descending
+                        select new
+                        {
+                            ID = c.ClassID,
+                            Subject = c.Subject,
+                            Form = c.SchoolForm,
+                            TeacherName = c.Teacher.FirstName + " " + c.Teacher.LastName, 
+                            AcademicTerm = c.Term,
+                            AcademicYear = c.AcademicYear
+                        };
+
+            var cbyIDYR = from t in db.Principals
+                          join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                          join f in db.SchoolForms on c.FormID equals f.FormID
+                          join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                          join tm in db.Terms on c.TermID equals tm.TermID
+                          where t.UserID == uID && c.AcademicYear == yr
+                          orderby c.AcademicYear descending, c.FormID descending
+                          select new
+                          {
+                              ID = c.ClassID,
+                              Subject = c.Subject,
+                              Form = c.SchoolForm,
+                              TeacherName = c.Teacher.FirstName + " " + c.Teacher.LastName, 
+                              AcademicTerm = c.Term,
+                              AcademicYear = c.AcademicYear
+                          };
+
+            var cbytrm = from t in db.Principals
+                         join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                         join f in db.SchoolForms on c.FormID equals f.FormID
+                         join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                         join tm in db.Terms on c.TermID equals tm.TermID
+                         where t.UserID == uID && c.TermID == trm
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             TeacherName = c.Teacher.FirstName + " " + c.Teacher.LastName, 
+                             AcademicTerm = c.Term,
+                             AcademicYear = c.AcademicYear
+                         };
+
+
+            var cbyIDYRTM = from t in db.Principals
+                            join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                            join f in db.SchoolForms on c.FormID equals f.FormID
+                            join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                            join tm in db.Terms on c.TermID equals tm.TermID
+                            where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
+                            orderby c.AcademicYear descending, c.FormID descending
+                            select new
+                            {
+                                ID = c.ClassID,
+                                Subject = c.Subject,
+                                Form = c.SchoolForm,
+                                TeacherName = c.Teacher.FirstName + " " + c.Teacher.LastName, 
+                                AcademicTerm = c.Term,
+                                AcademicYear = c.AcademicYear
+                            };
+            var cbysub = from t in db.Principals
+                         join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                         join f in db.SchoolForms on c.FormID equals f.FormID
+                         join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                         join tm in db.Terms on c.TermID equals tm.TermID
+                         where t.UserID == uID && c.SubjectCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             TeacherName = c.Teacher.FirstName + " " + c.Teacher.LastName, 
+                             AcademicTerm = c.Term,
+                             AcademicYear = c.AcademicYear
+                         };
+
+            var cbyAll = from t in db.Principals
+                         join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                         join f in db.SchoolForms on c.FormID equals f.FormID
+                         join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                         join tm in db.Terms on c.TermID equals tm.TermID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             TeacherName = c.Teacher.FirstName + " " + c.Teacher.LastName, 
+                             AcademicTerm = c.Term,
+                             AcademicYear = c.AcademicYear
+                         };
+
+            var cbyTeacher = from t in db.Principals
+                         join c in db.Classes on t.SchoolCode equals c.SchoolCode
+                         join f in db.SchoolForms on c.FormID equals f.FormID
+                         join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                         join tm in db.Terms on c.TermID equals tm.TermID
+                         join x in db.Teachers on t.SchoolCode equals x.SchoolCode
+                         
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub && x.FirstName + " " + x.LastName == teach
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = c.ClassID,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             TeacherName = c.Teacher.FirstName + " " + c.Teacher.LastName, 
+                             AcademicTerm = c.Term,
+                             AcademicYear = c.AcademicYear
+                         };
+
+            var SbyID = from s in db.Students
+                        join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                        join c in db.Classes on sc.ClassID equals c.ClassID
+                        join t in db.Teachers on c.TeacherID equals t.TeacherID
+                        where t.UserID == uID
+                        orderby c.AcademicYear descending, c.FormID descending
+                        select new
+                        {
+                            ID = sc.StudentClassesID,
+                            CID = sc.ClassID,
+                            SID = sc.StudentID,
+                            Student = s.FirstName + " " + s.LastName,
+                            Subject = c.Subject,
+                            Form = c.SchoolForm,
+                            AcademicYear = c.AcademicYear,
+                            AcademicTerm = c.Term
+                        };
+
+            var SbyIDYR = from s in db.Students
+                          join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                          join c in db.Classes on sc.ClassID equals c.ClassID
+                          join t in db.Teachers on c.TeacherID equals t.TeacherID
+                          where t.UserID == uID && c.AcademicYear == yr
+                          orderby c.AcademicYear descending, c.FormID descending
+                          select new
+                          {
+                              ID = sc.StudentClassesID,
+                              CID = sc.ClassID,
+                              SID = sc.StudentID,
+                              Student = s.FirstName + " " + s.LastName,
+                              Subject = c.Subject,
+                              Form = c.SchoolForm,
+                              AcademicYear = c.AcademicYear,
+                              AcademicTerm = c.Term
+                          };
+
+            var SbyIDYRTM = from s in db.Students
+                            join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                            join c in db.Classes on sc.ClassID equals c.ClassID
+                            join t in db.Teachers on c.TeacherID equals t.TeacherID
+                            join a in db.Assessments on sc.StudentClassesID equals a.StudentClassesID
+                            where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
+                            orderby c.AcademicYear descending, c.FormID descending
+                            select new
+                            {
+                                ID = sc.StudentClassesID,
+                                CID = sc.ClassID,
+                                SID = sc.StudentID,
+                                Student = s.FirstName + " " + s.LastName,
+                                Subject = c.Subject,
+                                Form = c.SchoolForm,
+                                AcademicYear = c.AcademicYear,
+                                AcademicTerm = c.Term,
+                                AssessmentID = a.AssessmentID,
+                                AssessmentDate = a.Date,
+                                AssessmentGrade = a.Score
+                            };
+
+            var SbyAll = from s in db.Students
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SubjectCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm,
+                             AcademicYear = c.AcademicYear,
+                             AcademicTerm = c.Term
+                         };
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["Classestab"])
+            {
+
+                if (yr == "" & trm <= 0 & sub <= 0 & teach == "")
+                {
+                    if (cbyID.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyID.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+
+                }
+
+                if (yr == "" & trm <= 0 & sub <= 0 & teach == CTTeacherCB.SelectedText.ToString())
+                {
+                    if (cbyID.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyTeacher.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+
+                }
+
+                if (yr == "" & trm > 0 & sub <= 0)
+                {
+                    if (cbytrm.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbytrm.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+
+                }
+
+                if (yr == "" & trm <= 0 & sub > 0)
+                {
+                    if (cbysub.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbysub.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+                }
+
+                if (yr != "" & trm <= 0 & sub <= 0)
+                {
+                    if (cbyIDYR.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyIDYR.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+                }
+
+                if (yr != "" & trm != 0 & sub <= 0)
+                {
+                    if (cbyIDYRTM.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyIDYRTM.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+                }
+
+                if (yr != "" & trm != 0 & sub != 0)
+                {
+                    if (cbyIDYRTM.Count() != 0)
+                    {
+                        teachercoursesGV.DataSource = cbyAll.ToList();
+                    }
+                    else
+                    {
+                        Empty();
+                    }
+                }
+            }
+
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["StudentsPerClassTab"])
+            {
+                if (yr == "" & trm <= 0 & sub <= 0)
+                {
+                    studentclasslistGV.DataSource = SbyID.ToList();
+                }
+
+                if (yr != "" & trm <= 0 & sub <= 0)
+                {
+                    studentclasslistGV.DataSource = SbyIDYR.ToList();
+                }
+
+                if (yr != "" & trm != 0 & sub <= 0)
+                {
+                    studentclasslistGV.DataSource = SbyIDYRTM.ToList();
+                }
+
+                if (yr != "" & trm != 0 & sub != 0)
+                {
+                    studentclasslistGV.DataSource = SbyAll.ToList();
+                }
+            }
+
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["ClassApprovalTab"])
+            {
+                if (yr == "" & trm <= 0 & sub <= 0)
+                {
+                    classapprovallistGV.DataSource = SbyID.ToList();
+                }
+
+                if (yr != "" & trm <= 0 & sub <= 0)
+                {
+                    classapprovallistGV.DataSource = SbyIDYR.ToList();
+                }
+
+                if (yr != "" & trm != 0 & sub <= 0)
+                {
+                    classapprovallistGV.DataSource = SbyIDYRTM.ToList();
+                }
+
+                if (yr != "" & trm != 0 & sub != 0)
+                {
+                    classapprovallistGV.DataSource = SbyAll.ToList();
+                }
+            }
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["StudentGradesTab"])
+            {
+                if (yr == "" & trm <= 0 & sub <= 0)
+                {
+                    gStudentsGV.DataSource = SbyID.ToList();
+                    hidecols();
+                }
+
+                if (yr != "" & trm <= 0 & sub <= 0)
+                {
+                    gStudentsGV.DataSource = SbyIDYR.ToList();
+                    hidecols();
+                }
+
+                if (yr != "" & trm != 0 & sub <= 0)
+                {
+                    gStudentsGV.DataSource = SbyIDYRTM.ToList();
+                    hidecols();
+                }
+
+                if (yr != "" & trm != 0 & sub != 0)
+                {
+                    gStudentsGV.DataSource = SbyAll.ToList();
+                    hidecols();
+                }
+            }
+        }
+
+
+
+        private void ctGetDatabtn_Click(object sender, EventArgs e)
+        {
+            results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+        }
+
+        private void ctResetbtn_Click(object sender, EventArgs e)
+        {
+            refresh();
+        }
+        private void refresh()
+        {
+            fillcombobox();
+            this.teachercoursesGV.DataSource = null;
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["ClassTaughtTab"])
+            {
+                results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+            }
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["StudentsPerClassTab"])
+            {
+                results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+            }
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["ClassApprovalTab"])
+            {
+                results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+            }
+
+            if (PrinicipalTabs.SelectedTab == PrinicipalTabs.TabPages["StudentGradesTab"])
+            {
+                results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+            }
+        }
+        private void LoadStudentList()
+        {
+            var ctquery = from s in db.Students
+                          join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                          join c in db.Classes on sc.ClassID equals c.ClassID
+                          join f in db.SchoolForms on c.FormID equals f.FormID
+                          join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                          join tm in db.Terms on c.TermID equals tm.TermID
+                          join t in db.Teachers on c.TeacherID equals t.TeacherID
+                          join a in db.Assessments on sc.StudentClassesID equals a.StudentClassesID
+                          where t.UserID == uID
+                          orderby c.AcademicYear descending, c.FormID descending
+                          select new
+                          {
+                              ID = sc.StudentClassesID,
+                              CID = sc.ClassID,
+                              SID = sc.StudentID,
+                              Student = s.FirstName + " " + s.LastName,
+                              Subject = c.Subject,
+                              Form = f.FormName,
+                              AcademicYear = c.AcademicYear,
+                              AcademicTerm = c.Term,
+                              AssessmentID = a.AssessmentID,
+                              AssessmentDate = a.Date,
+                              AssessmentGrade = a.Score
+                          };
+            studentclasslistGV.DataSource = ctquery.ToList();
+
+            gStudentsGV.DataSource = ctquery.ToList();
+
+            hidecols();
+            classlist();
+
+        }
+
+        private void hidecols()
+        {
+            gStudentsGV.Columns["AcademicYear"].Visible = false;
+            gStudentsGV.Columns["AcademicTerm"].Visible = false;
+
+        }
+        private void classlist()
+        {
+            var clist = from s in db.Students
+                        join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                        join c in db.Classes on sc.ClassID equals c.ClassID
+                        //join f in db.SchoolForms on c.FormID equals f.FormID
+                        //join su in db.Subjects on c.SubjectCode equals su.SubjectCode
+                        //join tm in db.Terms on c.TermID equals tm.TermID
+                        join t in db.Teachers on c.TeacherID equals t.TeacherID
+                        where t.UserID == uID
+                        orderby c.AcademicYear descending, c.FormID descending
+                        select new
+                        {
+                            ID = sc.StudentClassesID,
+                            CID = sc.ClassID,
+                            SID = sc.StudentID,
+                            Student = s.FirstName + " " + s.LastName,
+                            Subject = c.Subject,
+                            Form = c.SchoolForm.FormName,
+                            //AcademicYear = c.AcademicYear,
+                            // AcademicTerm = c.Term
+                            Status = "Pending"
+                        };
+            classapprovallistGV.DataSource = clist.ToList();
+
+            //DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
+
+            //cmb.Name = "cmb";
+            //cmb.MaxDropDownItems = 2;
+            //cmb.Items.Add("Approved");
+            //cmb.Items.Add("Deferred");
+            //cmb.DataSource = clist.Select(x => x.Status);
+            //classapprovallistGV.Columns.Add(cmb);
+
+            //DataGridViewLinkColumn Editlink = new DataGridViewLinkColumn();
+            //Editlink.UseColumnTextForLinkValue = true;
+            //Editlink.HeaderText = "Edit"; 
+            //Editlink.DataPropertyName = "lnkColumn"; 
+            //Editlink.LinkBehavior = LinkBehavior.SystemDefault; 
+            //Editlink.Text = "Edit";
+            //classapprovallistGV.Columns.Add(Editlink);
+
+            //DataGridViewLinkColumn Deletelink = new DataGridViewLinkColumn();
+            //Deletelink.UseColumnTextForLinkValue = true;
+            //Deletelink.HeaderText = "Delete";
+            //Deletelink.DataPropertyName = "lnkColumn";
+            //Deletelink.LinkBehavior = LinkBehavior.SystemDefault;
+            //Deletelink.Text = "Delete";
+            //classapprovallistGV.Columns.Add(Deletelink);
+
+        }
+
+        private void sresults(string yr, int trm, int sub)
+        {
+            var clist = from s in db.Students
+                        join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                        join c in db.Classes on sc.ClassID equals c.ClassID
+                        join t in db.Teachers on c.TeacherID equals t.TeacherID
+                        where t.UserID == uID
+                        orderby c.AcademicYear descending, c.FormID descending
+                        select new
+                        {
+                            ID = sc.StudentClassesID,
+                            CID = sc.ClassID,
+                            SID = sc.StudentID,
+                            Student = s.FirstName + " " + s.LastName,
+                            Subject = c.Subject,
+                            Form = c.SchoolForm.FormName,
+                        };
+            var clist2 = from s in db.Students
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm.FormName,
+                         };
+            var clist3 = from s in db.Students
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm.FormName,
+                         };
+            var clist4 = from s in db.Students
+                         join sc in db.StudentClasses on s.StudentID equals sc.StudentID
+                         join c in db.Classes on sc.ClassID equals c.ClassID
+                         join t in db.Teachers on c.TeacherID equals t.TeacherID
+                         where t.UserID == uID && c.AcademicYear == yr && c.TermID == trm && c.SchoolCode == sub
+                         orderby c.AcademicYear descending, c.FormID descending
+                         select new
+                         {
+                             ID = sc.StudentClassesID,
+                             CID = sc.ClassID,
+                             SID = sc.StudentID,
+                             Student = s.FirstName + " " + s.LastName,
+                             Subject = c.Subject,
+                             Form = c.SchoolForm.FormName,
+                         };
+
+            if (yr == "" & trm <= 0 & sub <= 0)
+            {
+                classapprovallistGV.DataSource = clist.ToList();
+            }
+            if (yr != "" & trm <= 0 & sub <= 0)
+            {
+                classapprovallistGV.DataSource = clist2.ToList();
+            }
+            if (yr != "" & trm != 0 & sub <= 0)
+            {
+                classapprovallistGV.DataSource = clist3.ToList();
+            }
+
+            if (yr != "" & trm != 0 & sub != 0)
+            {
+                classapprovallistGV.DataSource = clist4.ToList();
+            }
+
+        }
+        
+
+        private void loadAssessment(int s, int c)
+        {
+            gStudentAssGV.DataSource = null;
+
+            var Aquery = from S in db.Students
+                         join sC in db.StudentClasses on S.StudentID equals sC.StudentID
+                         join C in db.Classes on sC.ClassID equals C.ClassID
+                         join aS in db.Assessments on sC.StudentClassesID equals aS.StudentClassesID
+                         where sC.StudentID == s && sC.ClassID == c
+                         orderby aS.Date descending
+                         select new
+                         {
+                             ExamDate = aS.Date,
+                             Score = aS.Score
+                         };
+
+
+            if (Aquery.Count() == 0)
+            {
+                gStudentAssGV.DataSource = Aquery.ToList();
+                MessageBox.Show("No Recorded Assessment(s)");
+
+            }
+            else
+            {
+                gStudentAssGV.DataSource = Aquery.ToList();
+
+            }
+
+        }
+
+        private void gStudentsGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            sID = Int32.Parse(gStudentsGV.Rows[e.RowIndex].Cells["SID"].Value.ToString());
+            cID = Int32.Parse(gStudentsGV.Rows[e.RowIndex].Cells["CID"].Value.ToString());
+            scID = Int32.Parse(gStudentsGV.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+            loadAssessment(sID, cID);
+            hidecols();
+        }
+
+        private void scGetDataBtn_Click(object sender, EventArgs e)
+        {
+            results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+        }
+
+        private void scResetBtn_Click(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        private void hideAdd()
+        {
+            NewAssessmentGB.Visible = false;
+        }
+
+        private void SaveABtn_Click(object sender, EventArgs e)
+        {
+            saveAssess();
+            hideAdd();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            NewAssessmentGB.Visible = true;
+            aID = db.Assessments.Max(x => x.AssessmentID) + 1;
+        }
+
+        private void saveAssess()
+        {
+            try
+            {
+                newExam = new Assessment()
+                {
+                    AssessmentID = aID,
+                    StudentClassesID = scID,
+                    Date = Convert.ToDateTime(AssesDatePicker.Text),
+                    Score = Convert.ToDecimal(ScoreTB.Text)
+
+                };
+
+                db.Assessments.Add(newExam);
+                db.SaveChanges();
+                MessageBox.Show("Assessment Successfully Added");
+                //loadAssessment(sID, cID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Cannot Be Saved, {0}" + ex);
+            }
+            finally
+            {
+                loadAssessment(sID, cID);
+
+            }
+        }
+
+        private void clRefreshBtn_Click(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        private void clGetDataBtn_Click(object sender, EventArgs e)
+        {
+            sresults(clAcademicYrCB.Text, Convert.ToInt32(clTermCB.SelectedValue), Convert.ToInt32(clSubjectCB.SelectedValue));
+
+        }
+
+        private void gRefreshBtn_Click(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        private void gGetDataBtn_Click(object sender, EventArgs e)
+        {
+            results(CTAcademicperiodCB.Text, Convert.ToInt32(CTTermCB.SelectedValue), Convert.ToInt32(ctSubjectCB.SelectedValue), CTTeacherCB.Text);
+
+        }
+
+        private void gAcademicYrCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gTermCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gCancelBtn_Click(object sender, EventArgs e)
+        {
+            ScoreTB.Clear();
+            hideAdd();
+        }
+
+        private void studentclasslistGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ctSchoolTB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void scFormCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

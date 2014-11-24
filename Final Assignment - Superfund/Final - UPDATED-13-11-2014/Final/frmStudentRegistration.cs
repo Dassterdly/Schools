@@ -190,7 +190,7 @@ namespace Final
                          join sp in db.StudentsParents on s.StudentID equals sp.StudentID
                          join p in db.Parents on sp.ParentID equals p.ParentID
                          where s.StudentID == sID
-                         select new { FirstName = p.PFirstName, LastName = p.PLastName, Relationship = sp.Relationship };
+                         select new { FirstName = p.FirstName, LastName = p.LastName, Relationship = sp.Relationship };
 
             studentparentGV.DataSource = pquery.ToList();
         }
@@ -203,9 +203,9 @@ namespace Final
                 Parent newParent = new Parent
                 {
                     ParentID = Convert.ToInt32(ValidateID(pidTB.Text)),
-                    PFirstName = ValidateName(pfirstnameTB.Text),
+                    FirstName = ValidateName(pfirstnameTB.Text),
                     MiddleInitial = MITB.Text,
-                    PLastName = ValidateName(plastnameTB.Text),
+                    LastName = ValidateName(plastnameTB.Text),
                     HomePhone = ValidatePhone(shomepTB.Text),
                     CellPhone = ValidatePhone(pcellTB.Text),
                     WorkPhone = ValidatePhone(pworkTB.Text),

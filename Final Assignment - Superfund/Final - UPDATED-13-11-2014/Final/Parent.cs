@@ -20,9 +20,7 @@ namespace Final
         }
     
         public int ParentID { get; set; }
-        public string PFirstName { get; set; }
         public string MiddleInitial { get; set; }
-        public string PLastName { get; set; }
         public string HomePhone { get; set; }
         public string CellPhone { get; set; }
         public string WorkPhone { get; set; }
@@ -30,6 +28,8 @@ namespace Final
         public string Email { get; set; }
         public int UserID { get; set; }
         public string Prefix { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     
         public virtual User User { get; set; }
         public virtual ICollection<StudentsParent> StudentsParents { get; set; }

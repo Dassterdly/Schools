@@ -24,6 +24,8 @@ namespace Final
         public int ClassID { get; set; }
         public Nullable<decimal> Grade { get; set; }
         public string Status { get; set; }
+        public Nullable<int> ApprovedBy { get; set; }
+        public Nullable<int> SignOffBy { get; set; }
     
         public virtual ICollection<Assessment> Assessments { get; set; }
         public virtual Class Class { get; set; }

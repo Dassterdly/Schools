@@ -87,5 +87,12 @@ namespace Final
         {
             Application.Exit();
         }
+
+        private void accountToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmPrincipalAccount p = new frmPrincipalAccount();
+            p.uIDlbl.Text = uIDlbl.Text;
+            p.Show();
+        }
     }
 }
